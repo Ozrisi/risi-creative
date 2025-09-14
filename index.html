@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -47,6 +46,12 @@
     .hero{
       min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px;
       gap:16px;
+    }
+    .hero .logo {
+      width: 140px;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
     }
     .hero h1{
       font-size:clamp(36px,8vw,84px); line-height:1.05; margin:0;
@@ -128,12 +133,11 @@
     @media (prefers-reduced-motion: reduce){
       #bg-video{ display:none }
       .overlay{ background: linear-gradient(180deg, #000, #0b0b0b 70%, #111) }
-      .hero h1, .hero .subtitle, .hero .contact, .hero .social-icons, .about-section .section-title, .about-card {
+      .hero h1, .hero .subtitle, .hero .contact, .hero .social-icons, .about-section .section-title, .about-card, .hero .logo {
         opacity: 1; transform: none;
       }
     }
   </style>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body>
   <video id="bg-video" autoplay muted loop playsinline poster="assets/video/poster.jpg">
@@ -142,6 +146,7 @@
   <div class="overlay" aria-hidden="true"></div>
 
   <main class="hero">
+    <img src="assets/logo.png" alt="Risi Creative Logo" class="logo">
     <h1 id="title">Risi Creative</h1>
     <div class="subtitle" id="subtitle">Yakında Buradayız 🚀</div>
     <div class="contact" id="contact">Adres: Bitez, Bodrum / Muğla / Türkiye</div>
@@ -178,7 +183,8 @@
     document.addEventListener('DOMContentLoaded', () => {
       // --- Intro Animation ---
       const tl = gsap.timeline({defaults:{ease:'power3.out'}});
-      tl.to('#title', {opacity:1, y:0, duration:1.1})
+      tl.to('.logo', {opacity:1, y:0, duration:1.1})
+        .to('#title', {opacity:1, y:0, duration:1.1}, '-=0.6')
         .to('#subtitle', {opacity:1, y:0, duration:.9}, '-=.7')
         .to('#contact', {opacity:1, y:0, duration:.9}, '-=.7')
         .to('#socials', {opacity:1, y:0, duration:.9}, '-=.7');
@@ -217,6 +223,5 @@
       });
     });
   </script>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>
