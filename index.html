@@ -206,13 +206,16 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
+      let nodeCount = window.innerWidth < 768 ? 35 : 70; // mobilde daha az node
+      let lineWidth = window.innerWidth < 768 ? 0.8 : 1.5; // mobilde daha ince çizgi
+
       let nodes = [];
-      for (let i=0; i<70; i++){
+      for (let i=0; i<nodeCount; i++){
         nodes.push({
           x: Math.random()*canvas.width,
           y: Math.random()*canvas.height,
-          dx: (Math.random()-0.5)*1.2,
-          dy: (Math.random()-0.5)*1.2
+          dx: (Math.random()-0.5)*1.0,
+          dy: (Math.random()-0.5)*1.0
         });
       }
 
@@ -224,21 +227,21 @@
           if(n.x<0||n.x>canvas.width) n.dx*=-1;
           if(n.y<0||n.y>canvas.height) n.dy*=-1;
           ctx.beginPath();
-          ctx.arc(n.x,n.y,2.5,0,Math.PI*2);
+          ctx.arc(n.x,n.y,2,0,Math.PI*2);
           ctx.fillStyle="rgba(0,255,255,0.9)";
           ctx.fill();
           for(let j=i+1;j<nodes.length;j++){
             let m = nodes[j];
             let dist = Math.hypot(n.x-m.x,n.y-m.y);
-            if(dist<150){
+            if(dist<140){
               let gradient = ctx.createLinearGradient(n.x,n.y,m.x,m.y);
-              gradient.addColorStop(0,"rgba(0,200,255,0.7)"); // Turkuaz
-              gradient.addColorStop(1,"rgba(255,45,149,0.7)"); // Mor
+              gradient.addColorStop(0,"rgba(0,200,255,0.6)");
+              gradient.addColorStop(1,"rgba(255,45,149,0.6)");
               ctx.beginPath();
               ctx.moveTo(n.x,n.y);
               ctx.lineTo(m.x,m.y);
               ctx.strokeStyle=gradient;
-              ctx.lineWidth=1.0;
+              ctx.lineWidth=lineWidth;
               ctx.stroke();
             }
           }
