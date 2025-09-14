@@ -11,41 +11,42 @@
   <style>
     :root{
       --bg:#000;
-      --bg-section: #0a0a0a;
       --fg:#fff;
       --muted:#cfd2d8;
-      --border-color: rgba(255, 255, 255, 0.1);
-      --brand1:#00b5ff;
-      --brand2:#ff2d95;
+      --brand1:#00b5ff; /* Turkuaz */
+      --brand2:#ff2d95; /* Mor/Pembe */
     }
     *{box-sizing:border-box}
-    html,body{
-      height:100%;
-      scroll-behavior: smooth;
-    }
+    html,body{height:100%;scroll-behavior: smooth;}
     body{
-      margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;
+      margin:0; font-family:'Poppins',sans-serif;
       color:var(--fg); background:var(--bg);
       overflow-x: hidden;
     }
 
     /* Background video */
     #bg-video{
-      position:fixed; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2;
+      position:fixed; inset:0; width:100%; height:100%; object-fit:cover; z-index:-3;
     }
-    /* Fallback gradient overlay */
+
+    /* Overlay */
     .overlay{
       position:fixed; inset:0; z-index:-1; pointer-events:none;
-      background:
-        radial-gradient(1000px 700px at 60% 30%, rgba(0,181,255,.20), transparent 60%),
-        radial-gradient(900px 600px at 40% 70%, rgba(255,45,149,.18), transparent 60%),
-        linear-gradient(180deg, rgba(0,0,0,.5), rgba(0,0,0,.75));
+      background: rgba(0,0,0,0.65);
+    }
+
+    /* Canvas Network Graph */
+    #bg-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -2;
     }
 
     /* Hero Section */
     .hero{
       min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px;
-      gap:16px;
+      gap:16px; position: relative; z-index: 1;
     }
     .hero .logo {
       width: 140px;
@@ -57,8 +58,20 @@
       font-size:clamp(36px,8vw,84px); line-height:1.05; margin:0;
       background:linear-gradient(90deg, var(--brand1), #9be7ff, var(--brand2));
       -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
-      text-shadow:0 0 30px rgba(0,181,255,.35), 0 0 60px rgba(255,45,149,.25);
+      position: relative;
       opacity:0; transform:translateY(24px);
+    }
+    /* Mor-Turkuaz Neon Aura */
+    .hero h1::after {
+      content:"";
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 130%; height: 170%;
+      background: radial-gradient(circle at 30% 40%, rgba(0,181,255,0.4), transparent 70%),
+                  radial-gradient(circle at 70% 60%, rgba(255,45,149,0.35), transparent 70%);
+      filter: blur(80px);
+      z-index: -1;
     }
     .hero .subtitle{ font-size:clamp(16px,3.2vw,22px); color:var(--muted); letter-spacing:.08em; opacity:0; transform:translateY(20px) }
     .hero .contact{ margin-top:12px; display:grid; gap:6px; opacity:0; transform:translateY(18px); color:var(--muted); }
@@ -76,9 +89,9 @@
     /* About Section */
     .about-section {
       padding: 100px 24px;
-      background-color: var(--bg-section);
       position: relative;
-      z-index: 2;
+      z-index: 1;
+      background: rgba(50,50,50,0.65); /* saydam gri */
     }
     .about-section .section-title {
       font-size: clamp(32px, 5vw, 48px);
@@ -99,14 +112,14 @@
       }
     }
     .about-card {
-      background: rgba(16, 16, 16, 0.5);
-      border: 1px solid var(--border-color);
+      background: rgba(16, 16, 16, 0.6);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 12px;
       padding: 32px;
       transition: background 0.3s ease, border-color 0.3s ease;
     }
     .about-card:hover {
-      background: rgba(24, 24, 24, 0.7);
+      background: rgba(24, 24, 24, 0.8);
       border-color: rgba(255, 255, 255, 0.2);
     }
     .about-card h3 {
@@ -121,34 +134,21 @@
       color: var(--muted);
     }
 
-    /* Animation initial states */
-    .about-section .section-title, .about-card {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
     /* Footer */
-    footer{ text-align:center; color:#9aa0a6; font-size:14px; padding:32px 0; background-color: var(--bg); position: relative; z-index: 2;}
-
-    @media (prefers-reduced-motion: reduce){
-      #bg-video{ display:none }
-      .overlay{ background: linear-gradient(180deg, #000, #0b0b0b 70%, #111) }
-      .hero h1, .hero .subtitle, .hero .contact, .hero .social-icons, .about-section .section-title, .about-card, .hero .logo {
-        opacity: 1; transform: none;
-      }
-    }
+    footer{ text-align:center; color:#9aa0a6; font-size:14px; padding:32px 0; position: relative; z-index: 1;}
   </style>
 </head>
 <body>
   <video id="bg-video" autoplay muted loop playsinline poster="assets/video/poster.jpg">
     <source src="assets/video/hero.mp4" type="video/mp4">
   </video>
+  <canvas id="bg-canvas"></canvas>
   <div class="overlay" aria-hidden="true"></div>
 
   <main class="hero">
     <img src="assets/logo.png" alt="Risi Creative Logo" class="logo">
     <h1 id="title">Risi Creative</h1>
-    <div class="subtitle" id="subtitle">Yakında Buradayız 🚀</div>
+    <div class="subtitle" id="subtitle">Sizin için hazırlanıyoruz, yakında buradayız. 🚀</div>
     <div class="contact" id="contact">Adres: Bitez, Bodrum / Muğla / Türkiye</div>
     <div class="social-icons" id="socials">
       <a href="mailto:info@risicreative.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
@@ -181,7 +181,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // --- Intro Animation ---
+      // Intro Animation
       const tl = gsap.timeline({defaults:{ease:'power3.out'}});
       tl.to('.logo', {opacity:1, y:0, duration:1.1})
         .to('#title', {opacity:1, y:0, duration:1.1}, '-=0.6')
@@ -189,37 +189,67 @@
         .to('#contact', {opacity:1, y:0, duration:.9}, '-=.7')
         .to('#socials', {opacity:1, y:0, duration:.9}, '-=.7');
 
-      const vid = document.getElementById('bg-video');
-      vid?.addEventListener('error', ()=>{ vid.style.display='none'; });
-
-      // --- Scroll-Triggered Animations ---
+      // Scroll Animations
       gsap.registerPlugin(ScrollTrigger);
-
-      // Animate Section Title
       gsap.to('.about-section .section-title', {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.about-section',
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        }
+        opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+        scrollTrigger: { trigger: '.about-section', start: 'top 80%', toggleActions: 'play none none none' }
+      });
+      gsap.to('.about-card', {
+        opacity: 1, y: 0, duration: 1, ease: 'power3.out', stagger: 0.2,
+        scrollTrigger: { trigger: '.about-grid', start: 'top 80%', toggleActions: 'play none none none' }
       });
 
-      // Animate Cards with a stagger effect
-      gsap.to('.about-card', {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: 'power3.out',
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '.about-grid',
-          start: 'top 80%',
-          toggleActions: 'play none none none'
+      // Network Graph Effect (Mor-Turkuaz Gradient)
+      const canvas = document.getElementById("bg-canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let nodes = [];
+      for (let i=0; i<70; i++){
+        nodes.push({
+          x: Math.random()*canvas.width,
+          y: Math.random()*canvas.height,
+          dx: (Math.random()-0.5)*1.2,
+          dy: (Math.random()-0.5)*1.2
+        });
+      }
+
+      function draw(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for(let i=0; i<nodes.length; i++){
+          let n = nodes[i];
+          n.x += n.dx; n.y += n.dy;
+          if(n.x<0||n.x>canvas.width) n.dx*=-1;
+          if(n.y<0||n.y>canvas.height) n.dy*=-1;
+          ctx.beginPath();
+          ctx.arc(n.x,n.y,2.5,0,Math.PI*2);
+          ctx.fillStyle="rgba(0,255,255,0.9)";
+          ctx.fill();
+          for(let j=i+1;j<nodes.length;j++){
+            let m = nodes[j];
+            let dist = Math.hypot(n.x-m.x,n.y-m.y);
+            if(dist<150){
+              let gradient = ctx.createLinearGradient(n.x,n.y,m.x,m.y);
+              gradient.addColorStop(0,"rgba(0,200,255,0.7)"); // Turkuaz
+              gradient.addColorStop(1,"rgba(255,45,149,0.7)"); // Mor
+              ctx.beginPath();
+              ctx.moveTo(n.x,n.y);
+              ctx.lineTo(m.x,m.y);
+              ctx.strokeStyle=gradient;
+              ctx.lineWidth=1.5;
+              ctx.stroke();
+            }
+          }
         }
+        requestAnimationFrame(draw);
+      }
+      draw();
+
+      window.addEventListener("resize", ()=>{
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
       });
     });
   </script>
