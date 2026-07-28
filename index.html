@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Risi Creative — Yaratıcı Reklam & Yapay Zekâ Otomasyon Ajansı</title>
   <meta name="description" content="Risi Creative — Reklam, tasarım ve yapay zekâ otomasyonunu birleştiren yaratıcı ajans. Cesur fikirler, akılda kalan markalar, 7/24 çalışan otomasyonlar.">
-  <meta name="keywords" content="yaratıcı ajans, yapay zeka otomasyonu, reklam ajansı, marka tasarımı, dijital pazarlama, bodrum ajans, risi creative">
-  <meta name="theme-color" content="#f4f1e8">
+  <meta name="theme-color" content="#a9cef1">
 
   <meta property="og:title" content="Risi Creative — Yaratıcı Reklam & Yapay Zekâ Ajansı">
   <meta property="og:description" content="Cesur fikirler, akılda kalan markalar, 7/24 çalışan otomasyonlar.">
@@ -18,7 +17,7 @@
   <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <script>
     (function(){ try{ var t=localStorage.getItem('theme')||'light'; document.documentElement.setAttribute('data-theme',t); }catch(e){ document.documentElement.setAttribute('data-theme','light'); } })();
@@ -26,534 +25,467 @@
 
   <style>
     :root{
-      --bg:#f4f1e8;            /* krem */
-      --bg-2:#ece7db;
-      --fg:#151310;
-      --fg-dim:#5c574d;
-      --muted:#928c7e;
-      --line:rgba(21,19,16,0.14);
-      --card:#fffdf8;
-      --orange:#ff4a1c;
-      --blue:#2b4cff;
-      --lime:#c3ee3f;
-      --purple:#7c4dff;
-      --pink:#ff4d9d;
-      --teal:#0fbf9f;
-      --accent:var(--orange);
-      --ink-on:#151310;
-      --hero-fg:#151310;
-      --grain-op:.045;
+      --fg:#14171d;
+      --fg-dim:#5a6472;
+      --muted:#93a0b2;
+      --card:#ffffff;
+      --card-2:#f4f7fb;
+      --line:rgba(20,23,29,0.12);
+      --accent:#ff5a2a;
+      --green:#22c55e;
+      --shadow:0 18px 50px rgba(38,70,120,0.16);
+      --sky-1:#a9cef1; --sky-2:#cfe4f7; --sky-3:#e9f3fc;
       --ease:cubic-bezier(0.16,1,0.3,1);
       --elastic:cubic-bezier(.34,1.56,.64,1);
-      --pad:clamp(18px,5vw,72px);
+      --pad:clamp(16px,4.5vw,64px);
+      --r:26px;
       color-scheme:light;
     }
     :root[data-theme="dark"]{
-      --bg:#0e0d0c;
-      --bg-2:#171512;
-      --fg:#f3efe6;
-      --fg-dim:#a8a294;
-      --muted:#6f6a5e;
-      --line:rgba(243,239,230,0.14);
-      --card:#181613;
-      --hero-fg:#f3efe6;
-      --grain-op:.06;
+      --fg:#eef3fa;
+      --fg-dim:#a4b0c2;
+      --muted:#6f7c92;
+      --card:#141c2b;
+      --card-2:#1a2334;
+      --line:rgba(238,243,250,0.14);
+      --shadow:0 18px 50px rgba(0,0,0,0.45);
+      --sky-1:#0b1424; --sky-2:#0e1a30; --sky-3:#122138;
       color-scheme:dark;
     }
     *{ box-sizing:border-box; margin:0; padding:0; }
-    html{ background:var(--bg); transition:background .5s var(--ease); }
     html.lenis, html.lenis body{ height:auto; }
     .lenis.lenis-smooth{ scroll-behavior:auto !important; }
-    body{ font-family:'Inter',sans-serif; color:var(--fg); background:var(--bg); -webkit-font-smoothing:antialiased; overflow-x:hidden; line-height:1.5; transition:background .5s var(--ease), color .5s var(--ease); }
+    body{ font-family:'Inter',sans-serif; color:var(--fg); -webkit-font-smoothing:antialiased; overflow-x:hidden; line-height:1.5; }
     a{ color:inherit; text-decoration:none; }
     img{ display:block; max-width:100%; }
-    ::selection{ background:var(--orange); color:#fff; }
+    ::selection{ background:var(--accent); color:#fff; }
 
-    .grain{ position:fixed; inset:-50%; z-index:2; pointer-events:none; opacity:var(--grain-op); mix-blend-mode:multiply;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-    :root[data-theme="dark"] .grain{ mix-blend-mode:overlay; }
+    /* Sky background */
+    .sky{ position:fixed; inset:0; z-index:-2; background:linear-gradient(180deg,var(--sky-1),var(--sky-2) 55%,var(--sky-3)); transition:background .6s var(--ease); }
+    .clouds{ position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.9; transition:opacity .6s;
+      background:
+        radial-gradient(closest-side at 18% 22%, rgba(255,255,255,.85), transparent 62%),
+        radial-gradient(closest-side at 62% 14%, rgba(255,255,255,.7), transparent 60%),
+        radial-gradient(closest-side at 85% 40%, rgba(255,255,255,.6), transparent 60%),
+        radial-gradient(closest-side at 40% 60%, rgba(255,255,255,.55), transparent 62%);
+      background-size:cover; animation:drift 60s linear infinite alternate; }
+    :root[data-theme="dark"] .clouds{ opacity:.16; }
+    @keyframes drift{ to{ transform:translateX(-40px); } }
 
-    .cursor{ position:fixed; top:0; left:0; width:10px; height:10px; border-radius:50%; background:var(--orange); z-index:9999; pointer-events:none; transform:translate(-50%,-50%); transition:width .3s var(--ease), height .3s var(--ease), background .3s; }
-    .cursor.big{ width:76px; height:76px; }
+    .cursor{ position:fixed; top:0; left:0; width:10px; height:10px; border-radius:50%; background:var(--accent); z-index:9999; pointer-events:none; transform:translate(-50%,-50%); transition:width .3s var(--ease), height .3s var(--ease); }
+    .cursor.big{ width:74px; height:74px; }
     @media (hover:none){ .cursor{ display:none; } }
 
     /* Preloader */
-    .loader{ position:fixed; inset:0; z-index:1000; background:var(--orange); color:#fff; display:flex; align-items:center; justify-content:center; }
-    .loader .l-in{ text-align:center; }
-    .loader .l-name{ font-family:'Space Grotesk'; font-weight:700; font-size:clamp(40px,9vw,110px); letter-spacing:-.04em; overflow:hidden; }
+    .loader{ position:fixed; inset:0; z-index:1000; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:14px; }
+    .loader .l-name{ font-family:'Space Grotesk'; font-weight:700; font-size:clamp(36px,8vw,92px); letter-spacing:-.04em; overflow:hidden; }
     .loader .l-name span{ display:inline-block; transform:translateY(110%); }
-    .loader .l-count{ font-family:'Space Grotesk'; font-weight:500; font-size:16px; margin-top:10px; opacity:.85; }
+    .loader .l-count{ font-family:'Space Mono'; font-size:13px; letter-spacing:.1em; opacity:.9; }
 
     /* Utility */
-    .wrap{ padding-inline:var(--pad); }
-    .display{ font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-.04em; line-height:.92; }
-    .serif{ font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:0; }
-    .eyebrow{ font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--fg-dim); font-weight:500; }
+    .wrap{ padding-inline:var(--pad); max-width:1240px; margin:0 auto; }
+    .mono{ font-family:'Space Mono',monospace; }
+    .script{ font-family:'Caveat',cursive; color:var(--accent); }
+    .display{ font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-.035em; line-height:.96; }
+    .tag{ font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--fg-dim); }
     .line-mask{ overflow:hidden; display:block; }
     .line-mask > *{ display:block; transform:translateY(115%); }
-    .fade{ opacity:0; transform:translateY(30px); transition:opacity 1s var(--ease), transform 1s var(--ease); }
+    .fade{ opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
     .fade.in{ opacity:1; transform:none; }
+    .card{ background:var(--card); border-radius:var(--r); box-shadow:var(--shadow); border:1px solid var(--line); }
 
-    .btn{ position:relative; display:inline-flex; align-items:center; gap:11px; padding:16px 30px; border-radius:999px; font-family:'Space Grotesk'; font-weight:600; font-size:15px; cursor:pointer; overflow:hidden; will-change:transform; border:2px solid transparent; }
+    /* Pills / buttons */
+    .pill{ display:inline-flex; align-items:center; gap:11px; padding:13px 22px 13px 15px; border:1.6px solid var(--fg); border-radius:999px; background:var(--card); font-family:'Space Grotesk'; font-weight:600; font-size:15px; color:var(--fg); cursor:pointer; transition:background .3s var(--ease), color .3s, transform .35s var(--elastic); }
+    .pill .pi{ width:30px; height:30px; border-radius:50%; background:var(--card-2); display:flex; align-items:center; justify-content:center; transition:background .3s; }
+    .pill .pi svg{ width:15px; height:15px; }
+    .pill:hover{ background:var(--fg); color:var(--card); transform:translateY(-3px) rotate(-1.5deg); }
+    .pill:hover .pi{ background:var(--accent); color:#fff; }
+    .btn{ position:relative; display:inline-flex; align-items:center; gap:10px; padding:15px 26px; border-radius:999px; font-family:'Space Grotesk'; font-weight:600; font-size:15px; cursor:pointer; overflow:hidden; border:1.6px solid transparent; will-change:transform; }
     .btn span{ position:relative; z-index:2; }
-    .btn-fill{ background:var(--orange); color:#fff; }
-    .btn-fill::after{ content:""; position:absolute; inset:0; background:var(--blue); transform:translateY(101%); transition:transform .45s var(--elastic); z-index:1; }
-    .btn-fill:hover::after{ transform:translateY(0); }
-    .btn-line{ border-color:var(--fg); color:var(--fg); }
-    .btn-line::after{ content:""; position:absolute; inset:0; background:var(--fg); transform:translateY(101%); transition:transform .45s var(--elastic); z-index:1; }
-    .btn-line:hover{ color:var(--bg); }
-    .btn-line:hover::after{ transform:translateY(0); }
+    .btn-dark{ background:var(--fg); color:var(--card); }
+    .btn-accent{ background:var(--accent); color:#fff; }
+    .btn-accent::after,.btn-dark::after{ content:""; position:absolute; inset:0; transform:translateY(101%); transition:transform .45s var(--elastic); z-index:1; }
+    .btn-accent::after{ background:var(--fg); }
+    .btn-dark::after{ background:var(--accent); }
+    .btn-accent:hover::after,.btn-dark:hover::after{ transform:translateY(0); }
+    .btn-ghost{ border-color:var(--line); color:var(--fg); background:var(--card); }
+    .btn-ghost:hover{ border-color:var(--fg); }
 
-    /* Spinning badge */
-    .badge{ width:112px; height:112px; position:relative; }
-    .badge .ring{ width:100%; height:100%; animation:spin 12s linear infinite; }
-    .badge .ring text{ font-family:'Space Grotesk'; font-weight:600; font-size:11.5px; letter-spacing:.12em; fill:currentColor; text-transform:uppercase; }
-    .badge .dot{ position:absolute; inset:0; margin:auto; width:40px; height:40px; border-radius:50%; background:var(--orange); display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; }
-    @keyframes spin{ to{ transform:rotate(360deg); } }
+    /* Live status bar */
+    .live{ position:sticky; top:0; z-index:70; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px var(--pad); background:var(--card); border-bottom:1px solid var(--line); font-family:'Space Mono'; font-size:12px; letter-spacing:.06em; }
+    .live .l-left{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.1em; }
+    .live .l-left img{ width:20px; height:20px; object-fit:contain; }
+    .live .l-right{ display:flex; align-items:center; gap:8px; color:var(--fg-dim); }
+    .live .rec{ width:8px; height:8px; border-radius:50%; background:var(--accent); animation:blink 1.4s infinite; }
+    @keyframes blink{ 50%{ opacity:.25; } }
+    @media(max-width:560px){ .live .avail{ display:none; } }
 
-    /* Floating shapes */
-    .shape{ position:absolute; border-radius:50%; filter:blur(2px); opacity:.9; z-index:-1; pointer-events:none; will-change:transform; }
-    @keyframes float1{ 0%,100%{transform:translate(0,0) rotate(0)} 50%{transform:translate(14px,-22px) rotate(12deg)} }
-    @keyframes float2{ 0%,100%{transform:translate(0,0)} 50%{transform:translate(-18px,16px)} }
-
-    /* Nav */
-    .nav{ position:fixed; top:0; left:0; right:0; z-index:60; display:flex; align-items:center; justify-content:space-between; padding:16px var(--pad); }
-    .nav .brand{ display:flex; align-items:center; gap:11px; font-family:'Space Grotesk'; font-weight:700; font-size:18px; letter-spacing:-.02em; }
-    .nav .brand img{ width:28px; height:28px; object-fit:contain; }
-    .nav-right{ display:flex; align-items:center; gap:14px; }
-    .nav-menu{ display:flex; gap:6px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:999px; padding:6px; box-shadow:0 6px 24px rgba(0,0,0,.06); }
-    .nav-menu a{ font-size:14px; font-weight:500; color:var(--fg); padding:9px 16px; border-radius:999px; transition:background .3s, color .3s; }
-    .nav-menu a:hover{ background:var(--orange); color:#fff; }
-    .theme-btn{ width:44px; height:44px; border-radius:50%; border:1px solid var(--line); background:var(--card); color:var(--fg); cursor:pointer; display:flex; align-items:center; justify-content:center; flex:0 0 44px; transition:transform .5s var(--elastic), border-color .3s; }
-    .theme-btn:hover{ transform:rotate(40deg) scale(1.06); border-color:var(--orange); }
-    .theme-btn svg{ width:17px; height:17px; }
+    /* Nav (floating pill) */
+    .nav{ position:fixed; top:52px; left:50%; transform:translateX(-50%); z-index:65; display:flex; gap:6px; padding:6px; background:var(--card); border:1px solid var(--line); border-radius:999px; box-shadow:var(--shadow); }
+    .nav a{ font-family:'Space Grotesk'; font-weight:600; font-size:14px; padding:9px 17px; border-radius:999px; transition:background .3s, color .3s; }
+    .nav a:hover{ background:var(--card-2); }
+    .nav a.cta{ background:var(--fg); color:var(--card); }
+    .nav a.cta:hover{ background:var(--accent); }
+    .theme-btn{ width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--card-2); color:var(--fg); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:transform .5s var(--elastic); }
+    .theme-btn:hover{ transform:rotate(40deg); }
+    .theme-btn svg{ width:16px; height:16px; }
     .theme-btn .i-sun{ display:none; }
     :root[data-theme="dark"] .theme-btn .i-sun{ display:block; }
     :root[data-theme="dark"] .theme-btn .i-moon{ display:none; }
-    .nav-cta{ display:inline-flex; }
-    .nav-toggle{ display:none; width:44px; height:44px; border-radius:50%; border:1px solid var(--line); background:var(--card); color:var(--fg); font-family:'Space Grotesk'; font-size:13px; cursor:pointer; }
+    @media(max-width:820px){ .nav .hideable{ display:none; } }
 
-    .menu-overlay{ position:fixed; inset:0; z-index:55; background:var(--orange); color:#fff; display:flex; flex-direction:column; justify-content:center; padding:var(--pad); clip-path:circle(0% at 92% 5%); transition:clip-path .7s var(--ease); }
-    .menu-overlay.open{ clip-path:circle(150% at 92% 5%); }
-    .menu-overlay a{ font-family:'Space Grotesk'; font-weight:700; font-size:clamp(38px,12vw,76px); letter-spacing:-.03em; padding:5px 0; color:#fff; }
-    .menu-overlay a .idx{ font-family:'Inter'; font-size:13px; vertical-align:super; margin-right:12px; opacity:.7; }
+    section{ position:relative; z-index:2; }
+    .sec{ padding-block:clamp(64px,9vw,120px); }
+    .sec-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:22px; flex-wrap:wrap; margin-bottom:40px; }
+    .sec-head h2{ font-family:'Space Grotesk'; font-weight:700; letter-spacing:-.04em; line-height:.95; font-size:clamp(32px,6vw,80px); }
+    .sec-head h2 em{ color:var(--accent); font-style:normal; }
+    .sec-head p{ color:var(--fg-dim); max-width:34ch; font-size:15px; }
 
     /* Hero */
-    .hero{ position:relative; min-height:100svh; display:flex; flex-direction:column; justify-content:center; padding:120px var(--pad) 60px; overflow:hidden; color:var(--hero-fg); }
-    .hero .status{ display:inline-flex; align-items:center; gap:9px; font-size:13px; color:var(--fg-dim); margin-bottom:26px; }
-    .hero .status .dot{ width:8px; height:8px; border-radius:50%; background:var(--lime); box-shadow:0 0 0 4px rgba(195,238,63,.25); }
-    .hero h1{ font-size:clamp(44px,10.5vw,180px); line-height:.9; letter-spacing:-.045em; font-weight:700; max-width:15ch; }
-    .hero h1 em{ color:var(--orange); }
-    .hero h1 .b2{ color:var(--blue); }
-    .hero-foot{ display:flex; justify-content:space-between; align-items:flex-end; gap:30px; margin-top:clamp(28px,4vw,52px); flex-wrap:wrap; }
-    .hero-foot .lead{ max-width:440px; }
-    .hero-foot .lead p{ color:var(--fg-dim); font-size:clamp(15px,1.5vw,18px); margin-bottom:22px; }
-    .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; }
-    .hero .badge-wrap{ position:absolute; top:clamp(90px,13vw,150px); right:var(--pad); color:var(--fg); }
-    @media(max-width:720px){ .hero .badge-wrap{ display:none; } }
+    .hero{ padding:150px var(--pad) 30px; max-width:1240px; margin:0 auto; }
+    .hero .eyebrow{ margin-bottom:18px; display:inline-block; }
+    .hero h1{ font-size:clamp(40px,9vw,140px); line-height:.9; letter-spacing:-.045em; font-weight:700; max-width:16ch; }
+    .hero h1 em{ font-family:'Caveat',cursive; font-style:normal; color:var(--accent); font-weight:700; letter-spacing:0; }
+    .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+    .hero-cards{ display:grid; gap:18px; margin-top:44px; }
+    @media(min-width:900px){ .hero-cards{ grid-template-columns:1.3fr 1fr; } }
+
+    .cap-card{ padding:26px; }
+    .cap-card .ch{ display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+    .cap-grid{ display:flex; flex-wrap:wrap; gap:10px; }
+    .now-card{ padding:26px; display:flex; flex-direction:column; justify-content:space-between; gap:20px; }
+    .now-card h3{ font-family:'Space Grotesk'; font-weight:700; font-size:clamp(22px,2.6vw,30px); letter-spacing:-.02em; margin-top:8px; }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+    .chip{ font-family:'Space Mono'; font-size:12.5px; font-weight:700; padding:8px 13px; border-radius:10px; background:var(--card-2); color:var(--fg); }
+    .eq{ display:inline-flex; gap:4px; align-items:flex-end; height:28px; }
+    .eq i{ width:5px; background:var(--accent); border-radius:2px; height:40%; animation:eq 1s ease-in-out infinite; }
+    .eq i:nth-child(2){ animation-delay:.15s } .eq i:nth-child(3){ animation-delay:.3s } .eq i:nth-child(4){ animation-delay:.45s } .eq i:nth-child(5){ animation-delay:.6s }
+    @keyframes eq{ 0%,100%{ height:30% } 50%{ height:100% } }
 
     /* Marquee */
-    .marquee{ background:var(--fg); color:var(--bg); padding:18px 0; overflow:hidden; white-space:nowrap; border-block:2px solid var(--fg); }
-    .marquee.o{ background:var(--orange); color:#fff; border-color:var(--orange); }
-    .marquee .track{ display:inline-flex; gap:36px; will-change:transform; animation:marq 22s linear infinite; }
-    .marquee.rev .track{ animation-direction:reverse; }
-    .marquee span{ font-family:'Space Grotesk'; font-size:clamp(18px,2.6vw,32px); font-weight:700; letter-spacing:-.01em; display:inline-flex; align-items:center; gap:36px; text-transform:uppercase; }
-    .marquee span::after{ content:"✦"; }
+    .marquee{ overflow:hidden; white-space:nowrap; padding:14px 0; margin-top:30px; }
+    .marquee .track{ display:inline-flex; gap:20px; animation:marq 26s linear infinite; }
+    .marquee .m{ font-family:'Space Grotesk'; font-weight:700; font-size:clamp(20px,3vw,34px); letter-spacing:-.02em; display:inline-flex; align-items:center; gap:20px; }
+    .marquee .m::after{ content:"✦"; color:var(--accent); }
     @keyframes marq{ to{ transform:translateX(-50%); } }
 
-    section{ position:relative; z-index:3; background:var(--bg); }
-    .sec{ padding-block:clamp(80px,11vw,160px); }
-    .sec-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:56px; }
-    .sec-head .t{ font-family:'Space Grotesk'; font-weight:700; letter-spacing:-.04em; line-height:.95; font-size:clamp(34px,7vw,96px); }
-    .sec-head .t em{ color:var(--orange); }
-    .sec-head p{ color:var(--fg-dim); max-width:38ch; font-size:15.5px; }
-    .sec-tag{ display:inline-flex; align-items:center; gap:9px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--fg-dim); font-weight:600; margin-bottom:14px; }
-    .sec-tag::before{ content:""; width:26px; height:8px; border-radius:99px; background:var(--orange); }
+    /* how it works */
+    .hiw{ text-align:center; }
+    .hiw .script{ font-size:clamp(34px,6vw,60px); display:inline-block; transform:rotate(-4deg); }
+    .hiw h2{ font-family:'Space Grotesk'; font-weight:700; letter-spacing:-.045em; line-height:.92; font-size:clamp(38px,9vw,120px); margin-top:6px; }
+    .hiw h2 em{ color:var(--accent); font-style:normal; }
 
-    /* Portfolio rows */
-    .work-list{ display:grid; gap:clamp(20px,3vw,40px); }
-    .proj{ display:grid; gap:22px; }
-    @media(min-width:840px){
-      .proj{ grid-template-columns:1fr 1fr; align-items:center; gap:48px; }
-      .proj.rev .proj-media{ order:2; }
-    }
-    .proj-media{ position:relative; border-radius:26px; overflow:hidden; aspect-ratio:4/3; will-change:transform; transition:transform .5s var(--ease); }
-    .proj-media .bg{ position:absolute; inset:0; transition:transform .8s var(--ease); }
-    .proj:hover .proj-media .bg{ transform:scale(1.05); }
-    .proj-media .tag{ position:absolute; top:16px; left:16px; z-index:2; font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:600; background:rgba(255,255,255,.9); color:#151310; padding:8px 14px; border-radius:999px; }
-    .proj-media .go{ position:absolute; bottom:16px; right:16px; z-index:2; width:56px; height:56px; border-radius:50%; background:#fff; color:#151310; display:flex; align-items:center; justify-content:center; font-size:20px; transform:scale(0) rotate(-30deg); transition:transform .5s var(--elastic); }
-    .proj:hover .proj-media .go{ transform:scale(1) rotate(0); }
-    .proj-info .num{ font-family:'Space Grotesk'; font-weight:600; color:var(--orange); font-size:14px; }
-    .proj-info h3{ font-family:'Space Grotesk'; font-weight:700; letter-spacing:-.03em; line-height:.98; font-size:clamp(30px,4.6vw,58px); margin:10px 0 16px; }
-    .proj-info p{ color:var(--fg-dim); font-weight:300; max-width:42ch; margin-bottom:20px; }
-    .proj-info .chips{ display:flex; gap:8px; flex-wrap:wrap; }
-    .chip{ font-size:12.5px; font-weight:500; padding:8px 15px; border-radius:999px; border:1px solid var(--line); color:var(--fg-dim); }
-    .g1{ background:linear-gradient(135deg,#ff4a1c,#ffb03a); }
-    .g2{ background:linear-gradient(135deg,#2b4cff,#7c4dff); }
-    .g3{ background:linear-gradient(135deg,#c3ee3f,#0fbf9f); }
-    .g4{ background:linear-gradient(135deg,#ff4d9d,#7c4dff); }
-    .g5{ background:linear-gradient(135deg,#0fbf9f,#2b4cff); }
-    .g6{ background:linear-gradient(135deg,#151310,#ff4a1c); }
+    /* Work — horizontal browser cards */
+    .work-scroll{ display:flex; gap:22px; overflow-x:auto; scroll-snap-type:x mandatory; padding:6px var(--pad) 24px; margin-inline:calc(var(--pad)*-1); cursor:grab; scrollbar-width:none; }
+    .work-scroll::-webkit-scrollbar{ display:none; }
+    .work-scroll.drag{ cursor:grabbing; scroll-snap-type:none; }
+    .wcard{ scroll-snap-align:center; flex:0 0 min(86vw,560px); padding:26px; }
+    .wcard .whead{ display:flex; align-items:baseline; gap:12px; }
+    .wcard .whead .n{ font-family:'Space Mono'; color:var(--muted); font-size:13px; }
+    .wcard h3{ font-family:'Space Grotesk'; font-weight:700; letter-spacing:-.03em; line-height:1; font-size:clamp(26px,4vw,44px); margin:6px 0 10px; }
+    .wcard h3 em{ color:var(--accent); font-style:normal; }
+    .wcard p{ color:var(--fg-dim); font-size:14.5px; margin-bottom:20px; max-width:44ch; }
+    .browser{ border-radius:16px; overflow:hidden; border:1px solid var(--line); background:var(--card-2); }
+    .browser .bar{ display:flex; align-items:center; gap:7px; padding:11px 14px; border-bottom:1px solid var(--line); }
+    .browser .bar i{ width:11px; height:11px; border-radius:50%; background:var(--muted); opacity:.6; }
+    .browser .bar i:nth-child(1){ background:#ff5f57; opacity:1 } .browser .bar i:nth-child(2){ background:#febc2e; opacity:1 } .browser .bar i:nth-child(3){ background:#28c840; opacity:1 }
+    .browser .shot{ height:clamp(180px,26vw,260px); }
+    .g1{ background:linear-gradient(135deg,#ff5a2a,#ffb03a) } .g2{ background:linear-gradient(135deg,#2b6bff,#7c4dff) }
+    .g3{ background:linear-gradient(135deg,#0fbf9f,#2b6bff) } .g4{ background:linear-gradient(135deg,#ff4d9d,#7c4dff) }
+    .wend{ display:flex; align-items:center; }
 
-    /* Showreel */
-    .reel{ position:relative; border-radius:30px; overflow:hidden; aspect-ratio:16/9; background:#111; }
-    .reel video, .reel .rf{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-    .reel .rf{ background:linear-gradient(135deg,#2b4cff,#ff4a1c); }
-    .reel .play{ position:absolute; inset:0; margin:auto; width:96px; height:96px; border-radius:50%; background:rgba(255,255,255,.92); color:#151310; display:flex; align-items:center; justify-content:center; font-size:26px; z-index:2; }
-
-    /* Services playful cards */
-    .svc-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
-    @media(min-width:640px){ .svc-grid{ grid-template-columns:repeat(2,1fr); } }
-    @media(min-width:980px){ .svc-grid{ grid-template-columns:repeat(3,1fr); } }
-    .svc-card{ background:var(--card); border:1px solid var(--line); border-radius:24px; padding:30px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between; transition:transform .4s var(--elastic), box-shadow .4s, background .4s; }
-    .svc-card:hover{ transform:translateY(-8px) rotate(-1.2deg); box-shadow:0 22px 44px rgba(0,0,0,.12); }
-    .svc-card .ic{ width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:22px; }
-    .svc-card:nth-child(1) .ic{ background:var(--orange); }
-    .svc-card:nth-child(2) .ic{ background:var(--blue); }
-    .svc-card:nth-child(3) .ic{ background:var(--teal); }
-    .svc-card:nth-child(4) .ic{ background:var(--purple); }
-    .svc-card:nth-child(5) .ic{ background:var(--pink); }
-    .svc-card:nth-child(6) .ic{ background:var(--fg); }
-    .svc-card h3{ font-family:'Space Grotesk'; font-weight:700; font-size:22px; letter-spacing:-.02em; margin:20px 0 8px; }
-    .svc-card p{ color:var(--fg-dim); font-weight:300; font-size:14.5px; line-height:1.6; }
-
-    /* Automation flow */
-    .auto{ background:var(--blue); color:#fff; }
-    .auto .sec-tag{ color:rgba(255,255,255,.8); }
-    .auto .sec-tag::before{ background:var(--lime); }
-    .auto .sec-head .t{ color:#fff; }
-    .auto .sec-head .t em{ color:var(--lime); }
-    .auto .sec-head p{ color:rgba(255,255,255,.8); }
-    .flow{ display:grid; gap:16px; }
+    /* Automation */
+    .flow{ display:grid; gap:14px; }
     @media(min-width:820px){ .flow{ grid-template-columns:repeat(4,1fr); } }
-    .node{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); border-radius:22px; padding:26px; min-height:210px; display:flex; flex-direction:column; justify-content:space-between; transition:transform .4s var(--elastic), background .4s; }
-    .node:hover{ transform:translateY(-8px) rotate(1deg); background:rgba(255,255,255,.14); }
-    .node .n-ico{ width:46px; height:46px; border-radius:12px; background:var(--lime); color:#151310; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
-    .node .n-ico svg{ width:22px; height:22px; }
-    .node .n-step{ font-family:'Space Grotesk'; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--lime); margin-bottom:6px; }
-    .node h3{ font-family:'Space Grotesk'; font-weight:700; font-size:21px; margin-bottom:8px; }
-    .node p{ color:rgba(255,255,255,.78); font-weight:300; font-size:14px; line-height:1.5; }
+    .node{ padding:24px; min-height:200px; display:flex; flex-direction:column; justify-content:space-between; transition:transform .4s var(--elastic); }
+    .node:hover{ transform:translateY(-6px) rotate(1deg); }
+    .node .n-ico{ width:44px; height:44px; border-radius:12px; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+    .node .n-ico svg{ width:21px; height:21px; }
+    .node .n-step{ font-family:'Space Mono'; font-size:12px; color:var(--accent); margin-bottom:6px; }
+    .node h3{ font-family:'Space Grotesk'; font-weight:700; font-size:20px; margin-bottom:8px; }
+    .node p{ color:var(--fg-dim); font-size:14px; line-height:1.55; }
 
     /* Stats */
-    .stats{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .stats{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
     @media(min-width:820px){ .stats{ grid-template-columns:repeat(4,1fr); } }
-    .stat{ background:var(--card); border:1px solid var(--line); border-radius:24px; padding:clamp(26px,3vw,40px); }
-    .stat:nth-child(2){ background:var(--lime); border-color:var(--lime); color:#151310; }
-    .stat:nth-child(3){ background:var(--orange); border-color:var(--orange); color:#fff; }
-    .stat .val{ font-family:'Space Grotesk'; font-weight:700; font-size:clamp(44px,7vw,84px); letter-spacing:-.04em; line-height:1; }
-    .stat .lab{ margin-top:10px; font-size:14px; opacity:.85; }
+    .stat{ padding:clamp(24px,3vw,38px); }
+    .stat .val{ font-family:'Space Grotesk'; font-weight:700; font-size:clamp(42px,6.5vw,78px); letter-spacing:-.04em; line-height:1; color:var(--accent); }
+    .stat .lab{ margin-top:8px; font-size:14px; color:var(--fg-dim); }
 
-    /* Tech stack */
-    .stack-grid{ display:flex; flex-wrap:wrap; gap:12px; }
-    .stack-pill{ font-family:'Space Grotesk'; font-weight:600; font-size:clamp(15px,1.7vw,20px); padding:14px 22px; border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--fg); transition:transform .35s var(--elastic), background .35s, color .35s; }
-    .stack-pill:hover{ transform:translateY(-4px) rotate(-2deg); background:var(--orange); color:#fff; border-color:var(--orange); }
-    .stack-note{ margin-top:20px; font-size:12.5px; color:var(--muted); }
+    /* Stack */
+    .stack-grid{ display:flex; flex-wrap:wrap; gap:10px; }
+    .spill{ font-family:'Space Mono'; font-weight:700; font-size:14px; padding:12px 18px; border-radius:999px; background:var(--card); border:1px solid var(--line); box-shadow:var(--shadow); transition:transform .35s var(--elastic), background .3s, color .3s; }
+    .spill:hover{ transform:translateY(-4px) rotate(-2deg); background:var(--accent); color:#fff; }
+    .stack-note{ margin-top:18px; font-size:12.5px; color:var(--muted); }
 
     /* FAQ */
-    .faq{ border-top:2px solid var(--fg); }
-    .faq-item{ border-bottom:2px solid var(--fg); }
-    .faq-q{ width:100%; text-align:left; background:none; border:0; color:var(--fg); cursor:pointer; display:flex; justify-content:space-between; gap:20px; align-items:center; padding:clamp(20px,2.6vw,32px) 0; font-family:'Space Grotesk'; font-weight:600; font-size:clamp(18px,2.4vw,30px); letter-spacing:-.02em; line-height:1.1; }
-    .faq-q .pl{ color:var(--orange); font-size:28px; transition:transform .4s var(--elastic); flex:0 0 auto; }
+    .faq{ display:grid; gap:12px; }
+    .faq-item{ padding:4px 26px; }
+    .faq-q{ width:100%; text-align:left; background:none; border:0; color:var(--fg); cursor:pointer; display:flex; justify-content:space-between; gap:18px; align-items:center; padding:22px 0; font-family:'Space Grotesk'; font-weight:600; font-size:clamp(17px,2.2vw,24px); letter-spacing:-.02em; }
+    .faq-q .pl{ color:var(--accent); font-size:26px; transition:transform .4s var(--elastic); }
     .faq-item.open .faq-q .pl{ transform:rotate(135deg); }
     .faq-a{ max-height:0; overflow:hidden; transition:max-height .5s var(--ease); }
-    .faq-a p{ color:var(--fg-dim); font-weight:300; font-size:16px; line-height:1.7; max-width:62ch; padding-bottom:clamp(20px,2.6vw,30px); }
+    .faq-a p{ color:var(--fg-dim); font-weight:300; font-size:15.5px; line-height:1.7; padding-bottom:22px; max-width:60ch; }
 
     /* About */
-    .about-grid{ display:grid; gap:44px; }
-    @media(min-width:960px){ .about-grid{ grid-template-columns:1fr 1fr; gap:80px; align-items:start; } }
-    .about h2{ font-family:'Space Grotesk'; font-weight:700; letter-spacing:-.03em; line-height:1.02; font-size:clamp(30px,4.6vw,58px); }
-    .about h2 .serif{ color:var(--orange); }
-    .about .body{ color:var(--fg-dim); font-weight:300; font-size:clamp(16px,1.5vw,18px); line-height:1.75; max-width:52ch; }
-    .about .body p + p{ margin-top:18px; }
+    .about-grid{ display:grid; gap:26px; }
+    @media(min-width:900px){ .about-grid{ grid-template-columns:1fr 1fr; gap:40px; } }
+    .about-card{ padding:clamp(28px,3.4vw,46px); }
+    .about-card h2{ font-family:'Space Grotesk'; font-weight:700; letter-spacing:-.03em; line-height:1.03; font-size:clamp(26px,3.6vw,46px); }
+    .about-card h2 em{ color:var(--accent); font-style:normal; }
+    .about-card p{ color:var(--fg-dim); font-weight:300; font-size:16px; line-height:1.75; margin-top:16px; }
 
-    /* CTA */
-    .cta{ background:var(--orange); color:#fff; padding-block:clamp(90px,13vw,180px); text-align:center; position:relative; overflow:hidden; }
-    .cta .eyebrow{ color:rgba(255,255,255,.85); margin-bottom:26px; }
-    .cta-link{ display:inline-block; font-family:'Space Grotesk'; font-weight:700; letter-spacing:-.045em; line-height:.9; font-size:clamp(46px,13vw,180px); color:#fff; }
-    .cta-link .serif{ color:#151310; }
-    .cta-sub{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:40px; }
-    .cta .btn-fill{ background:#151310; }
-    .cta .btn-fill::after{ background:#fff; }
-    .cta .btn-fill:hover{ color:#151310; }
-    .cta .btn-line{ border-color:#fff; color:#fff; }
-    .cta .btn-line::after{ background:#fff; }
-    .cta .btn-line:hover{ color:var(--orange); }
+    /* Contact chat card */
+    .contact-card{ max-width:560px; margin:0 auto; overflow:hidden; }
+    .cc-head{ display:flex; align-items:center; gap:12px; padding:20px 24px; border-bottom:1px solid var(--line); }
+    .cc-head .av{ width:44px; height:44px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .cc-head .av img{ width:100%; height:100%; object-fit:cover; }
+    .cc-head .who{ font-family:'Space Grotesk'; font-weight:700; }
+    .cc-head .on{ font-family:'Space Mono'; font-size:11px; color:var(--green); display:flex; align-items:center; gap:6px; margin-top:2px; }
+    .cc-head .on::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--green); }
+    .cc-body{ padding:24px; }
+    .bubble{ background:var(--card-2); border-radius:18px 18px 18px 4px; padding:16px 18px; font-size:15.5px; color:var(--fg); max-width:85%; margin-bottom:10px; }
+    .bubble.b2{ animation-delay:.2s; }
+    .cc-actions{ display:grid; gap:10px; margin-top:20px; }
+    @media(min-width:480px){ .cc-actions{ grid-template-columns:1fr 1fr; } }
+    .cc-btn{ display:flex; align-items:center; justify-content:center; gap:10px; padding:15px; border-radius:14px; font-family:'Space Grotesk'; font-weight:600; font-size:15px; transition:transform .35s var(--elastic), filter .3s; }
+    .cc-btn:hover{ transform:translateY(-3px); }
+    .cc-wa{ background:#25D366; color:#fff; grid-column:1/-1; }
+    .cc-mail{ background:var(--accent); color:#fff; }
+    .cc-ig{ border:1.6px solid var(--fg); color:var(--fg); }
+    .cc-btn svg{ width:19px; height:19px; }
 
     /* Footer */
-    footer{ padding:clamp(40px,6vw,70px) var(--pad) 34px; position:relative; z-index:3; background:var(--bg); }
-    .foot-top{ display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; align-items:flex-start; }
-    .foot-lead{ font-family:'Space Grotesk'; font-weight:700; font-size:clamp(30px,6vw,72px); letter-spacing:-.04em; line-height:.95; max-width:14ch; }
-    .foot-lead .serif{ color:var(--orange); }
-    .foot-cols{ display:flex; gap:48px; flex-wrap:wrap; }
-    .foot-col h5{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
-    .foot-col a, .foot-col p{ display:block; color:var(--fg-dim); font-size:15px; font-weight:300; padding:5px 0; transition:color .3s; }
-    .foot-col a:hover{ color:var(--orange); }
-    .foot-bottom{ margin-top:clamp(44px,7vw,80px); padding-top:22px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); }
+    footer{ padding:clamp(36px,5vw,60px) var(--pad) 30px; position:relative; z-index:2; }
+    .foot-card{ padding:clamp(30px,4vw,52px); }
+    .foot-top{ display:flex; justify-content:space-between; gap:34px; flex-wrap:wrap; }
+    .foot-lead{ font-family:'Space Grotesk'; font-weight:700; font-size:clamp(28px,5vw,58px); letter-spacing:-.04em; line-height:.96; max-width:13ch; }
+    .foot-lead em{ font-family:'Caveat',cursive; font-style:normal; color:var(--accent); }
+    .foot-cols{ display:flex; gap:44px; flex-wrap:wrap; }
+    .foot-col h5{ font-family:'Space Mono'; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+    .foot-col a, .foot-col p{ display:block; color:var(--fg-dim); font-size:15px; padding:4px 0; transition:color .3s; }
+    .foot-col a:hover{ color:var(--accent); }
+    .foot-bottom{ margin-top:32px; padding-top:20px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:'Space Mono'; font-size:12px; color:var(--muted); }
     .to-top{ cursor:pointer; }
-    .to-top:hover{ color:var(--orange); }
 
-    .wa{ position:fixed; bottom:22px; right:22px; z-index:50; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 26px rgba(0,0,0,.3); transition:transform .35s var(--elastic); }
-    .wa:hover{ transform:scale(1.12) rotate(6deg); }
-    .wa svg{ width:28px; height:28px; }
-
-    @media (max-width:860px){
-      .nav-menu, .nav-cta{ display:none; }
-      .nav-toggle{ display:flex; align-items:center; justify-content:center; }
-    }
     @media (prefers-reduced-motion:reduce){
       *{ animation:none !important; transition:none !important; }
       .line-mask > *, .loader .l-name span{ transform:none !important; }
       .fade{ opacity:1 !important; transform:none !important; }
-      .badge .ring{ animation:none !important; }
     }
   </style>
 </head>
 <body>
-  <div class="grain" aria-hidden="true"></div>
+  <div class="sky" aria-hidden="true"></div>
+  <div class="clouds" aria-hidden="true"></div>
   <div class="cursor" id="cursor" aria-hidden="true"></div>
 
   <div class="loader" id="loader">
-    <div class="l-in">
-      <div class="l-name"><span>Risi Creative</span></div>
-      <div class="l-count" id="lcount">yükleniyor… 0%</div>
-    </div>
+    <div class="l-name"><span>Risi Creative</span></div>
+    <div class="l-count" id="lcount">YÜKLENİYOR · 0%</div>
   </div>
 
-  <header class="nav">
-    <a href="#top" class="brand" data-cursor><img src="assets/logo.png" alt=""> Risi Creative</a>
-    <div class="nav-right">
-      <nav class="nav-menu">
-        <a href="#work" data-cursor>Çalışmalar</a>
-        <a href="#services" data-cursor>Hizmetler</a>
-        <a href="#automation" data-cursor>Otomasyon</a>
-        <a href="#about" data-cursor>Ajans</a>
-      </nav>
-      <button class="theme-btn" id="themeBtn" data-cursor aria-label="Gece / gündüz modu" title="Tema">
-        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
-        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5z"/></svg>
-      </button>
-      <a href="#contact" class="btn btn-fill nav-cta" data-cursor style="padding:12px 24px"><span>Konuşalım</span></a>
-      <button class="nav-toggle" id="navToggle" data-cursor>Menü</button>
-    </div>
-  </header>
-
-  <div class="menu-overlay" id="menuOverlay">
-    <a href="#work"><span class="idx">01</span>Çalışmalar</a>
-    <a href="#services"><span class="idx">02</span>Hizmetler</a>
-    <a href="#automation"><span class="idx">03</span>Otomasyon</a>
-    <a href="#about"><span class="idx">04</span>Ajans</a>
-    <a href="#contact"><span class="idx">05</span>İletişim</a>
+  <!-- Live status bar -->
+  <div class="live" id="top">
+    <div class="l-left"><img src="assets/logo.png" alt=""> RISI CREATIVE</div>
+    <div class="l-right"><span class="rec"></span> <span>CANLI · <b id="clock">--:--:--</b></span> <span class="avail">· MÜSAİT</span></div>
   </div>
 
-  <main id="top">
+  <!-- Floating nav -->
+  <nav class="nav">
+    <a href="#top" class="hideable" data-cursor>Ana Sayfa</a>
+    <a href="#work" class="hideable" data-cursor>Çalışmalar</a>
+    <a href="#services" class="hideable" data-cursor>Hizmetler</a>
+    <button class="theme-btn" id="themeBtn" data-cursor aria-label="Tema">
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5z"/></svg>
+    </button>
+    <a href="#contact" class="cta" data-cursor>İletişim</a>
+  </nav>
+
+  <main>
     <!-- HERO -->
     <section class="hero">
-      <span class="shape" style="width:220px;height:220px;background:var(--blue);top:12%;left:-40px;animation:float1 9s ease-in-out infinite"></span>
-      <span class="shape" style="width:140px;height:140px;background:var(--lime);bottom:16%;right:8%;animation:float2 7s ease-in-out infinite"></span>
-      <span class="shape" style="width:90px;height:90px;background:var(--pink);bottom:30%;left:12%;animation:float1 8s ease-in-out infinite"></span>
-
-      <div class="badge-wrap">
-        <div class="badge" data-cursor>
-          <svg class="ring" viewBox="0 0 120 120"><defs><path id="cp" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text><textPath href="#cp" startOffset="0%">RISI CREATIVE · YAPAY ZEKÂ · REKLAM · </textPath></text></svg>
-          <span class="dot">✦</span>
-        </div>
+      <span class="tag eyebrow">◍ Yaratıcı &amp; Yapay Zekâ Ajansı — Bodrum</span>
+      <h1 class="display">
+        <span class="line-mask"><span>Dikkat çeken değil,</span></span>
+        <span class="line-mask"><span><em>akılda kalan</em></span></span>
+        <span class="line-mask"><span>markalar üretiyoruz.</span></span>
+      </h1>
+      <div class="hero-actions fade">
+        <a href="#work" class="btn btn-dark" data-cursor><span>Çalışmalarımız</span></a>
+        <a href="#contact" class="btn btn-accent" data-cursor><span>Projeni başlat →</span></a>
       </div>
 
-      <div class="status"><span class="dot"></span> Yeni projelere açığız — 2026</div>
-      <h1 class="display">
-        <span class="line-mask"><span>Dikkat çeken</span></span>
-        <span class="line-mask"><span>değil, <em class="serif">akılda&nbsp;kalan</em></span></span>
-        <span class="line-mask"><span>markalar <span class="b2">üretiyoruz.</span></span></span>
-      </h1>
-
-      <div class="hero-foot">
-        <div class="lead fade">
-          <p>Reklam, tasarım ve yapay zekâ otomasyonunu birleştiren bağımsız yaratıcı ajans. Bodrum'dan dünyaya.</p>
-          <div class="hero-actions">
-            <a href="#work" class="btn btn-fill" data-cursor><span>Çalışmalarımız</span></a>
-            <a href="#contact" class="btn btn-line" data-cursor><span>Projeni başlat</span></a>
+      <div class="hero-cards">
+        <div class="cap-card card fade" data-tilt>
+          <div class="ch"><span class="tag">Yetenekler / Capabilities</span><span class="tag">06</span></div>
+          <div class="cap-grid">
+            <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16"/></svg></span>Marka</span>
+            <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8l7-5 7 5"/></svg></span>Reklam</span>
+            <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg></span>Otomasyon</span>
+            <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg></span>Web</span>
+            <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 5v14l11-7z"/></svg></span>Motion</span>
+            <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></span>Sistemler</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- MARQUEE -->
-    <div class="marquee o" aria-hidden="true">
-      <div class="track"><span>Marka</span><span>Reklam</span><span>Otomasyon</span><span>Sosyal Medya</span><span>Web</span><span>Yapay Zekâ</span><span>Marka</span><span>Reklam</span><span>Otomasyon</span><span>Sosyal Medya</span><span>Web</span><span>Yapay Zekâ</span></div>
-    </div>
-
-    <!-- WORK / PORTFOLIO -->
-    <section class="sec wrap" id="work">
-      <div class="sec-head">
-        <div>
-          <span class="sec-tag">Çalışmalar</span>
-          <div class="t fade">Seçili<br><em>işler</em></div>
+        <div class="now-card card fade" data-tilt>
+          <div>
+            <span class="tag">▶ Şu an çalıştığımız araçlar</span>
+            <h3>Figma &amp; Yapay Zekâ</h3>
+          </div>
+          <div class="chips"><span class="chip">Figma</span><span class="chip">ChatGPT</span><span class="chip">Claude</span></div>
+          <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
         </div>
-        <p class="fade">Strateji, yaratıcı fikir ve yapay zekânın buluştuğu projeler. Fareyle üzerine gelin.</p>
       </div>
 
-      <div class="work-list">
-        <article class="proj fade" data-cursor>
-          <div class="proj-media" data-tilt><div class="bg g1"></div><span class="tag">Marka Kimliği</span><span class="go">↗</span></div>
-          <div class="proj-info"><div class="num">01</div><h3>Aurora Studio</h3><p>Sıfırdan marka kimliği ve web deneyimi. Cesur tipografi, sıcak bir palet ve akıcı bir hikâye.</p><div class="chips"><span class="chip">Kimlik</span><span class="chip">Web</span><span class="chip">Sanat Yönetimi</span></div></div>
-        </article>
-        <article class="proj rev fade" data-cursor>
-          <div class="proj-media" data-tilt><div class="bg g2"></div><span class="tag">AI Kampanya</span><span class="go">↗</span></div>
-          <div class="proj-info"><div class="num">02</div><h3>Nova Labs</h3><p>Yapay zekâ ile üretilen yüzlerce reklam varyasyonu, otomatik test ve optimizasyon.</p><div class="chips"><span class="chip">Reklam</span><span class="chip">Otomasyon</span><span class="chip">Performans</span></div></div>
-        </article>
-        <article class="proj fade" data-cursor>
-          <div class="proj-media" data-tilt><div class="bg g3"></div><span class="tag">Sosyal Medya</span><span class="go">↗</span></div>
-          <div class="proj-info"><div class="num">03</div><h3>Marea</h3><p>İçerik üretimi ve büyüme stratejisiyle 6 ayda güçlü bir topluluk.</p><div class="chips"><span class="chip">İçerik</span><span class="chip">Büyüme</span><span class="chip">Video</span></div></div>
-        </article>
-        <article class="proj rev fade" data-cursor>
-          <div class="proj-media" data-tilt><div class="bg g4"></div><span class="tag">Web Deneyimi</span><span class="go">↗</span></div>
-          <div class="proj-info"><div class="num">04</div><h3>Helios</h3><p>Sinematik, etkileşimli bir web deneyimi. Tasarımdan koda uçtan uca.</p><div class="chips"><span class="chip">Tasarım</span><span class="chip">Kod</span><span class="chip">Motion</span></div></div>
-        </article>
+      <div class="marquee" aria-hidden="true">
+        <div class="track"><span class="m">Marka</span><span class="m">Reklam</span><span class="m">Otomasyon</span><span class="m">Web</span><span class="m">Sosyal Medya</span><span class="m">Marka</span><span class="m">Reklam</span><span class="m">Otomasyon</span><span class="m">Web</span><span class="m">Sosyal Medya</span></div>
       </div>
     </section>
 
-    <!-- SHOWREEL -->
-    <section class="sec wrap" id="reel">
-      <div class="reel" data-cursor>
-        <video autoplay muted loop playsinline poster="assets/video/poster.jpg"><source src="assets/video/hero.mp4" type="video/mp4"></video>
-        <div class="rf"></div>
-        <span class="play">▶</span>
+    <!-- HOW IT WORKS -->
+    <section class="sec wrap hiw">
+      <span class="script fade">nasıl çalışıyoruz</span>
+      <h2 class="fade">Fikirden yayına,<br><em>tek bir akış.</em></h2>
+    </section>
+
+    <!-- WORK -->
+    <section class="sec" id="work">
+      <div class="wrap sec-head">
+        <div><span class="tag">— Çalışmalar</span><h2 class="fade" style="margin-top:8px">Seçili <em>işler</em></h2></div>
+        <p class="fade">Strateji, yaratıcı fikir ve yapay zekânın buluştuğu projeler. Kaydırın ya da sürükleyin.</p>
+      </div>
+      <div class="work-scroll" id="workScroll">
+        <article class="wcard card" data-cursor>
+          <div class="whead"><span class="n mono">01 · Marka Kimliği</span></div>
+          <h3>Aurora <em>Studio</em></h3>
+          <p>Sıfırdan marka kimliği ve web deneyimi — cesur tipografi, sıcak palet.</p>
+          <div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="shot g1"></div></div>
+        </article>
+        <article class="wcard card" data-cursor>
+          <div class="whead"><span class="n mono">02 · AI Kampanya</span></div>
+          <h3>Nova <em>Labs</em></h3>
+          <p>Yapay zekâ ile yüzlerce reklam varyasyonu, otomatik test ve optimizasyon.</p>
+          <div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="shot g2"></div></div>
+        </article>
+        <article class="wcard card" data-cursor>
+          <div class="whead"><span class="n mono">03 · Sosyal Medya</span></div>
+          <h3>Marea</h3>
+          <p>İçerik üretimi ve büyüme stratejisiyle 6 ayda güçlü bir topluluk.</p>
+          <div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="shot g3"></div></div>
+        </article>
+        <article class="wcard card" data-cursor>
+          <div class="whead"><span class="n mono">04 · Web Deneyimi</span></div>
+          <h3>Helios</h3>
+          <p>Sinematik, etkileşimli bir web deneyimi. Tasarımdan koda uçtan uca.</p>
+          <div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="shot g4"></div></div>
+        </article>
       </div>
     </section>
 
     <!-- SERVICES -->
     <section class="sec wrap" id="services">
-      <div class="sec-head">
-        <div><span class="sec-tag">Hizmetler</span><div class="t fade">Ne <em>yapıyoruz?</em></div></div>
-        <p class="fade">Fikirden sonuca, ihtiyacınız olan her alanda tek çatı altında.</p>
-      </div>
-      <div class="svc-grid">
-        <div class="svc-card fade" data-cursor><div class="ic">✦</div><div><h3>Marka &amp; Kimlik</h3><p>Logo, kurumsal kimlik ve marka stratejisi. Akılda kalıcı bir karakter.</p></div></div>
-        <div class="svc-card fade" data-cursor><div class="ic">◎</div><div><h3>Yapay Zekâ Reklam</h3><p>Doğru kitleyi yakalayan, sürekli optimize edilen performans kampanyaları.</p></div></div>
-        <div class="svc-card fade" data-cursor><div class="ic">⚙</div><div><h3>Otomasyon &amp; CRM</h3><p>İçerik, yayın ve müşteri iletişiminde 7/24 çalışan iş akışları.</p></div></div>
-        <div class="svc-card fade" data-cursor><div class="ic">✳</div><div><h3>Sosyal Medya</h3><p>İçerik, topluluk ve büyüme. Markanız her gün canlı ve konuşulur.</p></div></div>
-        <div class="svc-card fade" data-cursor><div class="ic">❋</div><div><h3>Web &amp; Deneyim</h3><p>Hızlı, oyunbaz ve akılda kalan web deneyimleri. İlk saniyeden etki.</p></div></div>
-        <div class="svc-card fade" data-cursor><div class="ic">↗</div><div><h3>Performans</h3><p>Veriye dayalı analiz ve raporlama ile ölçülebilir büyüme.</p></div></div>
+      <div class="sec-head"><div><span class="tag">— Hizmetler</span><h2 class="fade" style="margin-top:8px">Ne <em>yapıyoruz?</em></h2></div><p class="fade">Fikirden sonuca, ihtiyacınız olan her alanda tek çatı altında.</p></div>
+      <div class="cap-grid" style="gap:12px">
+        <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16"/></svg></span>Marka &amp; Kimlik</span>
+        <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8l7-5 7 5"/></svg></span>Yapay Zekâ Reklam</span>
+        <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg></span>Otomasyon &amp; CRM</span>
+        <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg></span>Sosyal Medya</span>
+        <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg></span>Web &amp; Deneyim</span>
+        <span class="pill" data-cursor><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18l6-6 4 4 6-8"/></svg></span>Performans</span>
       </div>
     </section>
 
     <!-- AUTOMATION -->
-    <section class="auto" id="automation">
-      <div class="sec wrap">
-        <div class="sec-head">
-          <div><span class="sec-tag">Yapay Zekâ Otomasyonu</span><div class="t fade">Yaratıcılığı <em>7/24</em> çalıştırıyoruz</div></div>
-          <p class="fade">Tek seferlik kampanyalar değil; sürekli üreten, ölçen ve kendini iyileştiren yapay zekâ sistemleri.</p>
-        </div>
-        <div class="flow fade">
-          <div class="node"><div><div class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h7"/></svg></div><div class="n-step">01</div><h3>Girdi</h3></div><p>Marka, veri ve hedefler yapay zekânın anlayacağı yapıya dönüşür.</p></div>
-          <div class="node"><div><div class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div class="n-step">02</div><h3>Yapay Zekâ</h3></div><p>Metin, görsel ve kampanyalar saniyeler içinde üretilip test edilir.</p></div>
-          <div class="node"><div><div class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M20 7l-9 9-4-4"/><path d="M4 20h16"/></svg></div><div class="n-step">03</div><h3>Otomasyon</h3></div><p>Yayın, hedefleme ve raporlama otomatik; sistem kendini optimize eder.</p></div>
-          <div class="node"><div><div class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 18l6-6 4 4 6-8"/></svg></div><div class="n-step">04</div><h3>Sonuç</h3></div><p>Ölçülebilir büyüme, düşük maliyet ve size kalan tek şey: yaratıcılık.</p></div>
-        </div>
+    <section class="sec wrap" id="automation">
+      <div class="sec-head"><div><span class="tag">— Yapay Zekâ Otomasyonu</span><h2 class="fade" style="margin-top:8px">7/24 <em>çalışan</em> sistemler</h2></div><p class="fade">Sürekli üreten, ölçen ve kendini iyileştiren yapay zekâ akışları.</p></div>
+      <div class="flow fade">
+        <div class="node card"><div><div class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h7"/></svg></div><div class="n-step mono">01</div><h3>Girdi</h3></div><p>Marka, veri ve hedefler yapay zekânın anlayacağı yapıya dönüşür.</p></div>
+        <div class="node card"><div><div class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><div class="n-step mono">02</div><h3>Yapay Zekâ</h3></div><p>Metin, görsel ve kampanyalar saniyeler içinde üretilip test edilir.</p></div>
+        <div class="node card"><div><div class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M20 7l-9 9-4-4"/><path d="M4 20h16"/></svg></div><div class="n-step mono">03</div><h3>Otomasyon</h3></div><p>Yayın, hedefleme ve raporlama otomatik; sistem kendini optimize eder.</p></div>
+        <div class="node card"><div><div class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 18l6-6 4 4 6-8"/></svg></div><div class="n-step mono">04</div><h3>Sonuç</h3></div><p>Ölçülebilir büyüme, düşük maliyet ve size kalan tek şey: yaratıcılık.</p></div>
       </div>
     </section>
 
     <!-- STATS -->
-    <section class="sec wrap" id="stats">
+    <section class="sec wrap">
       <div class="stats">
-        <div class="stat fade"><div class="val"><span class="n">0</span>×</div><div class="lab">Daha hızlı üretim</div></div>
-        <div class="stat fade"><div class="val"><span class="n">0</span>+</div><div class="lab">Yapay zekâ aracı</div></div>
-        <div class="stat fade"><div class="val">24/7</div><div class="lab">Çalışan otomasyon</div></div>
-        <div class="stat fade"><div class="val">∞</div><div class="lab">Yaratıcı fikir</div></div>
+        <div class="stat card fade"><div class="val"><span class="n">0</span>×</div><div class="lab">Daha hızlı üretim</div></div>
+        <div class="stat card fade"><div class="val"><span class="n">0</span>+</div><div class="lab">Yapay zekâ aracı</div></div>
+        <div class="stat card fade"><div class="val">24/7</div><div class="lab">Çalışan otomasyon</div></div>
+        <div class="stat card fade"><div class="val">∞</div><div class="lab">Yaratıcı fikir</div></div>
       </div>
     </section>
 
-    <!-- MARQUEE 2 -->
-    <div class="marquee rev" aria-hidden="true">
-      <div class="track"><span>Yaratıcı</span><span>Cesur</span><span>Oyunbaz</span><span>Akıllı</span><span>Hızlı</span><span>Yaratıcı</span><span>Cesur</span><span>Oyunbaz</span><span>Akıllı</span><span>Hızlı</span></div>
-    </div>
-
-    <!-- TECH STACK -->
+    <!-- STACK -->
     <section class="sec wrap" id="stack">
-      <div class="sec-head">
-        <div><span class="sec-tag">Teknoloji Yığınımız</span><div class="t fade">Güç aldığımız <em>araçlar</em></div></div>
-        <p class="fade">Önde gelen yapay zekâ ve otomasyon platformlarını bir arada kullanıyoruz.</p>
-      </div>
+      <div class="sec-head"><div><span class="tag">— Teknoloji Yığınımız</span><h2 class="fade" style="margin-top:8px">Güç aldığımız <em>araçlar</em></h2></div><p class="fade">Önde gelen yapay zekâ ve otomasyon platformlarını bir arada kullanıyoruz.</p></div>
       <div class="stack-grid fade">
-        <span class="stack-pill" data-cursor>OpenAI · ChatGPT</span>
-        <span class="stack-pill" data-cursor>Anthropic · Claude</span>
-        <span class="stack-pill" data-cursor>Google · Gemini</span>
-        <span class="stack-pill" data-cursor>Midjourney</span>
-        <span class="stack-pill" data-cursor>Runway</span>
-        <span class="stack-pill" data-cursor>ElevenLabs</span>
-        <span class="stack-pill" data-cursor>Perplexity</span>
-        <span class="stack-pill" data-cursor>Stable Diffusion</span>
-        <span class="stack-pill" data-cursor>Zapier</span>
-        <span class="stack-pill" data-cursor>Make</span>
-        <span class="stack-pill" data-cursor>n8n</span>
-        <span class="stack-pill" data-cursor>HubSpot</span>
-        <span class="stack-pill" data-cursor>Meta Ads</span>
-        <span class="stack-pill" data-cursor>Google Ads</span>
-        <span class="stack-pill" data-cursor>Figma</span>
+        <span class="spill" data-cursor>OpenAI · ChatGPT</span><span class="spill" data-cursor>Anthropic · Claude</span><span class="spill" data-cursor>Google · Gemini</span><span class="spill" data-cursor>Midjourney</span><span class="spill" data-cursor>Runway</span><span class="spill" data-cursor>ElevenLabs</span><span class="spill" data-cursor>Perplexity</span><span class="spill" data-cursor>Zapier</span><span class="spill" data-cursor>Make</span><span class="spill" data-cursor>n8n</span><span class="spill" data-cursor>HubSpot</span><span class="spill" data-cursor>Meta Ads</span><span class="spill" data-cursor>Google Ads</span><span class="spill" data-cursor>Figma</span>
       </div>
       <p class="stack-note">Projelerimizde kullandığımız başlıca yapay zekâ ve otomasyon araçları. Markalar sahiplerine aittir.</p>
     </section>
 
     <!-- FAQ -->
     <section class="sec wrap" id="faq">
-      <div class="sec-head"><div><span class="sec-tag">SSS</span><div class="t fade">Merak <em>edilenler</em></div></div></div>
+      <div class="sec-head"><div><span class="tag">— SSS</span><h2 class="fade" style="margin-top:8px">Merak <em>edilenler</em></h2></div></div>
       <div class="faq fade">
-        <div class="faq-item"><button class="faq-q" data-cursor>Hangi hizmetleri sunuyorsunuz? <span class="pl">+</span></button><div class="faq-a"><p>Marka kimliği, yapay zekâ destekli reklam, otomasyon & CRM, sosyal medya, web & deneyim tasarımı ve performans pazarlama. Uçtan uca ya da tek bir alanda çalışıyoruz.</p></div></div>
-        <div class="faq-item"><button class="faq-q" data-cursor>Yapay zekâ otomasyonu ne işime yarar? <span class="pl">+</span></button><div class="faq-a"><p>Tekrarlayan işleri — içerik, yayın, raporlama, müşteri iletişimi — otomatikleştirir. Ekibiniz stratejiye odaklanır; süreç 7/24 çalışmaya devam eder.</p></div></div>
-        <div class="faq-item"><button class="faq-q" data-cursor>Küçük bir işletme için uygun mu? <span class="pl">+</span></button><div class="faq-a"><p>Kesinlikle. Çözümleri ölçeğinize ve bütçenize göre kuruyoruz; küçük bir otomasyon bile büyük fark yaratır.</p></div></div>
-        <div class="faq-item"><button class="faq-q" data-cursor>Nasıl başlıyoruz? <span class="pl">+</span></button><div class="faq-a"><p>info@risicreative.com'a yazın ya da "Konuşalım" butonundan ulaşın. Kısa bir tanışmayla ihtiyaçlarınızı dinliyoruz.</p></div></div>
+        <div class="faq-item card"><button class="faq-q" data-cursor>Hangi hizmetleri sunuyorsunuz? <span class="pl">+</span></button><div class="faq-a"><p>Marka kimliği, yapay zekâ destekli reklam, otomasyon & CRM, sosyal medya, web & deneyim tasarımı ve performans pazarlama.</p></div></div>
+        <div class="faq-item card"><button class="faq-q" data-cursor>Yapay zekâ otomasyonu ne işime yarar? <span class="pl">+</span></button><div class="faq-a"><p>Tekrarlayan işleri — içerik, yayın, raporlama, müşteri iletişimi — otomatikleştirir. Ekibiniz stratejiye odaklanır; süreç 7/24 çalışır.</p></div></div>
+        <div class="faq-item card"><button class="faq-q" data-cursor>Küçük bir işletme için uygun mu? <span class="pl">+</span></button><div class="faq-a"><p>Kesinlikle. Çözümleri ölçeğinize ve bütçenize göre kuruyoruz.</p></div></div>
+        <div class="faq-item card"><button class="faq-q" data-cursor>Nasıl başlıyoruz? <span class="pl">+</span></button><div class="faq-a"><p>Aşağıdan bize yazın; kısa bir tanışmayla ihtiyaçlarınızı dinliyoruz.</p></div></div>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section class="sec wrap about" id="about">
-      <div class="sec-head"><div><span class="sec-tag">Ajans</span></div></div>
+    <section class="sec wrap" id="about">
       <div class="about-grid">
-        <h2 class="fade">Yaratıcılık ve <span class="serif">yapay zekâ</span>, aynı masada.</h2>
-        <div class="body fade">
-          <p>Risi Creative, yapay zekânın gücünü reklam ve tasarım dünyasıyla birleştiren bağımsız bir yaratıcı ajanstır. Amacımız markalara yalnızca dikkat çekici değil; akıllı, veriye dayalı ve kalıcı çözümler sunmak.</p>
-          <p>Yaratıcı ekibi otomasyonla güçlendirerek iş ortaklarımızın hedeflerine daha hızlı ulaşmasını sağlıyoruz. Geleceğin iletişim dilini bugünden, biraz da eğlenerek tasarlıyoruz.</p>
+        <div class="about-card card fade"><h2>Yaratıcılık ve <em>yapay zekâ</em>, aynı masada.</h2></div>
+        <div class="about-card card fade"><p>Risi Creative, yapay zekânın gücünü reklam ve tasarım dünyasıyla birleştiren bağımsız bir yaratıcı ajanstır. Markalara yalnızca dikkat çekici değil; akıllı, veriye dayalı ve kalıcı çözümler sunuyoruz.</p><p>Yaratıcı ekibi otomasyonla güçlendirerek hedeflerinize daha hızlı ulaşmanızı sağlıyoruz — biraz da eğlenerek.</p></div>
+      </div>
+    </section>
+
+    <!-- CONTACT (chat card) -->
+    <section class="sec wrap" id="contact">
+      <div class="sec-head" style="justify-content:center;text-align:center"><div><span class="script fade" style="font-size:clamp(30px,5vw,48px);display:inline-block;transform:rotate(-4deg)">hadi tanışalım</span><h2 class="fade" style="margin-top:4px">Bir <em>fikriniz</em> mi var?</h2></div></div>
+      <div class="contact-card card fade">
+        <div class="cc-head">
+          <div class="av"><img src="assets/logo.png" alt=""></div>
+          <div><div class="who">Risi Creative</div><div class="on">Çevrimiçi · genelde 1 saatte yanıt</div></div>
+        </div>
+        <div class="cc-body">
+          <div class="bubble">Merhaba! 👋 Markanızı büyütmek ya da bir proje başlatmak için buradayız.</div>
+          <div class="bubble b2">En hızlı yol WhatsApp — ama e-posta da olur. Nasıl isterseniz.</div>
+          <div class="cc-actions">
+            <a class="cc-btn cc-wa" href="https://wa.me/90" target="_blank" rel="noopener" data-cursor>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487 2.155.931 2.594.746 3.04.7.495-.05 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              WhatsApp'tan yaz
+            </a>
+            <a class="cc-btn cc-mail" href="mailto:info@risicreative.com" data-cursor>✉ E-posta gönder</a>
+            <a class="cc-btn cc-ig" href="https://instagram.com/risicreative" target="_blank" rel="noopener" data-cursor>Instagram ↗</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- CTA -->
-  <section class="cta wrap" id="contact">
-    <div class="eyebrow fade">Bir fikriniz mi var?</div>
-    <a class="cta-link" data-cursor href="mailto:info@risicreative.com">
-      <span class="line-mask"><span>Hadi</span></span>
-      <span class="line-mask"><span><span class="serif">konuşalım.</span></span></span>
-    </a>
-    <div class="cta-sub">
-      <a href="mailto:info@risicreative.com" class="btn btn-fill" data-cursor><span>info@risicreative.com</span></a>
-      <a href="https://instagram.com/risicreative" target="_blank" rel="noopener" class="btn btn-line" data-cursor><span>Instagram ↗</span></a>
-    </div>
-  </section>
-
   <footer>
-    <div class="foot-top">
-      <div class="foot-lead">Markanızı <span class="serif">geleceğe</span> taşıyalım.</div>
-      <div class="foot-cols">
-        <div class="foot-col">
-          <h5>Menü</h5>
-          <a href="#work">Çalışmalar</a><a href="#services">Hizmetler</a><a href="#automation">Otomasyon</a><a href="#about">Ajans</a>
-        </div>
-        <div class="foot-col">
-          <h5>Bağlan</h5>
-          <a href="https://instagram.com/risicreative" target="_blank" rel="noopener">Instagram ↗</a><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="mailto:info@risicreative.com">E-posta ↗</a><p>Bitez, Bodrum / Muğla</p>
+    <div class="wrap foot-card card">
+      <div class="foot-top">
+        <div class="foot-lead">Markanızı <em>geleceğe</em> taşıyalım.</div>
+        <div class="foot-cols">
+          <div class="foot-col"><h5>Menü</h5><a href="#work">Çalışmalar</a><a href="#services">Hizmetler</a><a href="#automation">Otomasyon</a><a href="#about">Ajans</a></div>
+          <div class="foot-col"><h5>Bağlan</h5><a href="https://instagram.com/risicreative" target="_blank" rel="noopener">Instagram ↗</a><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="mailto:info@risicreative.com">E-posta ↗</a><p>Bitez, Bodrum / Muğla</p></div>
         </div>
       </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 Risi Creative — Tüm hakları saklıdır.</span>
-      <span class="to-top" id="toTop" data-cursor>Başa dön ↑</span>
+      <div class="foot-bottom">
+        <span>© 2026 RISI CREATIVE — TÜM HAKLARI SAKLIDIR</span>
+        <span class="to-top" id="toTop" data-cursor>BAŞA DÖN ↑</span>
+      </div>
     </div>
   </footer>
-
-  <a class="wa" href="https://wa.me/90" target="_blank" rel="noopener" aria-label="WhatsApp" data-cursor>
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487 2.155.931 2.594.746 3.04.7.495-.05 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-  </a>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -564,10 +496,15 @@
     var hasGSAP=typeof gsap!=='undefined';
     var hover=matchMedia('(hover:hover)').matches;
 
+    /* Clock */
+    var clock=document.getElementById('clock');
+    function tick(){ if(!clock) return; var d=new Date(); clock.textContent=[d.getHours(),d.getMinutes(),d.getSeconds()].map(function(x){return(x<10?'0':'')+x;}).join(':'); }
+    tick(); setInterval(tick,1000);
+
     var lenis=null;
     if(typeof Lenis!=='undefined' && !reduce){ try{ lenis=new Lenis({lerp:0.09,smoothWheel:true}); (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(); if(hasGSAP&&window.ScrollTrigger){ lenis.on('scroll',ScrollTrigger.update); } }catch(e){ lenis=null; } }
-    function goTo(s){ var el=document.querySelector(s); if(!el) return; if(lenis) lenis.scrollTo(el); else el.scrollIntoView({behavior:reduce?'auto':'smooth'}); }
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){ a.addEventListener('click',function(e){ var h=a.getAttribute('href'); if(h.length>1){ e.preventDefault(); closeMenu(); goTo(h); } }); });
+    function goTo(s){ var el=document.querySelector(s); if(!el) return; if(lenis) lenis.scrollTo(el,{offset:-70}); else el.scrollIntoView({behavior:reduce?'auto':'smooth'}); }
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){ a.addEventListener('click',function(e){ var h=a.getAttribute('href'); if(h.length>1){ e.preventDefault(); goTo(h); } }); });
 
     var cursor=document.getElementById('cursor');
     if(cursor&&hover){
@@ -578,25 +515,26 @@
     }
 
     if(hover){
-      document.querySelectorAll('.btn').forEach(function(b){
-        b.addEventListener('mousemove',function(e){ var r=b.getBoundingClientRect(); b.style.transform='translate('+((e.clientX-r.left-r.width/2)*0.25)+'px,'+((e.clientY-r.top-r.height/2)*0.4)+'px)'; });
+      document.querySelectorAll('.btn,.cc-btn').forEach(function(b){
+        b.addEventListener('mousemove',function(e){ var r=b.getBoundingClientRect(); b.style.transform='translate('+((e.clientX-r.left-r.width/2)*0.2)+'px,'+((e.clientY-r.top-r.height/2)*0.3)+'px)'; });
         b.addEventListener('mouseleave',function(){ b.style.transform=''; });
       });
       document.querySelectorAll('[data-tilt]').forEach(function(el){
-        el.addEventListener('mousemove',function(e){ var r=el.getBoundingClientRect(); var rx=((e.clientY-r.top)/r.height-0.5)*-8; var ry=((e.clientX-r.left)/r.width-0.5)*8; el.style.transform='perspective(800px) rotateX('+rx+'deg) rotateY('+ry+'deg) scale(1.02)'; });
+        el.addEventListener('mousemove',function(e){ var r=el.getBoundingClientRect(); var rx=((e.clientY-r.top)/r.height-0.5)*-5; var ry=((e.clientX-r.left)/r.width-0.5)*5; el.style.transform='perspective(900px) rotateX('+rx+'deg) rotateY('+ry+'deg)'; });
         el.addEventListener('mouseleave',function(){ el.style.transform=''; });
       });
     }
 
     var themeBtn=document.getElementById('themeBtn'), metaTheme=document.querySelector('meta[name="theme-color"]');
-    function applyMeta(){ if(metaTheme){ metaTheme.setAttribute('content', document.documentElement.getAttribute('data-theme')==='dark'?'#0e0d0c':'#f4f1e8'); } }
+    function applyMeta(){ if(metaTheme){ metaTheme.setAttribute('content', document.documentElement.getAttribute('data-theme')==='dark'?'#0b1424':'#a9cef1'); } }
     applyMeta();
     if(themeBtn){ themeBtn.addEventListener('click',function(){ var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'; document.documentElement.setAttribute('data-theme',n); try{ localStorage.setItem('theme',n); }catch(e){} applyMeta(); if(hasGSAP&&window.ScrollTrigger) ScrollTrigger.refresh(); }); }
 
-    var menu=document.getElementById('menuOverlay'),toggle=document.getElementById('navToggle'),mo=false;
-    function closeMenu(){ if(menu){ menu.classList.remove('open'); mo=false; if(toggle) toggle.textContent='Menü'; } }
-    if(toggle){ toggle.addEventListener('click',function(){ mo=!mo; menu.classList.toggle('open',mo); toggle.textContent=mo?'Kapat':'Menü'; }); }
+    /* Work drag */
+    var g=document.getElementById('workScroll');
+    if(g){ var down=false,sx=0,sl=0; g.addEventListener('mousedown',function(e){ down=true; g.classList.add('drag'); sx=e.pageX; sl=g.scrollLeft; }); addEventListener('mouseup',function(){ down=false; g.classList.remove('drag'); }); g.addEventListener('mousemove',function(e){ if(!down) return; e.preventDefault(); g.scrollLeft=sl-(e.pageX-sx)*1.4; }); }
 
+    /* FAQ */
     document.querySelectorAll('.faq-item').forEach(function(item){
       var q=item.querySelector('.faq-q'), a=item.querySelector('.faq-a');
       q.addEventListener('click',function(){ var open=item.classList.contains('open'); document.querySelectorAll('.faq-item.open').forEach(function(o){ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight='0px'; }); if(!open){ item.classList.add('open'); a.style.maxHeight=a.scrollHeight+'px'; } });
@@ -607,21 +545,21 @@
 
     var loader=document.getElementById('loader');
     function revealHero(){ if(!hasGSAP||reduce){ document.querySelectorAll('.line-mask > *').forEach(function(s){ s.style.transform='none'; }); document.querySelectorAll('.hero .fade').forEach(function(f){ f.classList.add('in'); }); return; }
-      gsap.to('.hero h1 .line-mask > *',{y:'0%',duration:1.1,stagger:0.09,ease:'power4.out'});
-      gsap.to('.hero .fade',{opacity:1,y:0,duration:1,delay:0.5,ease:'power3.out'}); }
+      gsap.to('.hero h1 .line-mask > *',{y:'0%',duration:1.05,stagger:0.09,ease:'power4.out'});
+      gsap.to('.hero .fade',{opacity:1,y:0,duration:.9,delay:0.45,ease:'power3.out'}); }
     function initScroll(){ if(!hasGSAP||reduce){ document.querySelectorAll('.fade').forEach(function(f){ f.classList.add('in'); }); return; }
       gsap.registerPlugin(ScrollTrigger);
-      document.querySelectorAll('.fade').forEach(function(el){ gsap.to(el,{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}}); });
-      document.querySelectorAll('.val .n').forEach(function(nEl){ var v=nEl.parentNode, tg=(v.textContent.indexOf('×')>-1?3:(v.textContent.indexOf('+')>-1?10:0)); if(!tg) return; var o={n:0}; ScrollTrigger.create({trigger:v,start:'top 90%',once:true,onEnter:function(){ gsap.to(o,{n:tg,duration:1.4,ease:'power2.out',onUpdate:function(){ nEl.textContent=Math.round(o.n); }}); }}); });
+      document.querySelectorAll('.fade').forEach(function(el){ gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}}); });
+      document.querySelectorAll('.val .n').forEach(function(nEl){ var v=nEl.parentNode, tg=(v.textContent.indexOf('×')>-1?3:(v.textContent.indexOf('+')>-1?10:0)); if(!tg) return; var o={n:0}; ScrollTrigger.create({trigger:v,start:'top 92%',once:true,onEnter:function(){ gsap.to(o,{n:tg,duration:1.3,ease:'power2.out',onUpdate:function(){ nEl.textContent=Math.round(o.n); }}); }}); });
     }
     function start(){ if(window.__st) return; window.__st=true;
       if(reduce||!hasGSAP){ if(loader) loader.style.display='none'; revealHero(); initScroll(); return; }
       var c={v:0},cEl=document.getElementById('lcount');
-      var tl=gsap.timeline({onComplete:initScroll});
-      tl.set('.loader .l-name span',{y:'110%'})
-        .to('.loader .l-name span',{y:'0%',duration:.9,ease:'power4.out'},0.1)
-        .to(c,{v:100,duration:1.4,ease:'power2.inOut',onUpdate:function(){ if(cEl) cEl.textContent='yükleniyor… '+Math.round(c.v)+'%'; }},0.1)
-        .to('.loader',{clipPath:'inset(0 0 100% 0)',duration:.8,ease:'power4.inOut'},'+=0.2')
+      gsap.timeline({onComplete:initScroll})
+        .set('.loader .l-name span',{y:'110%'})
+        .to('.loader .l-name span',{y:'0%',duration:.85,ease:'power4.out'},0.1)
+        .to(c,{v:100,duration:1.3,ease:'power2.inOut',onUpdate:function(){ if(cEl) cEl.textContent='YÜKLENİYOR · '+Math.round(c.v)+'%'; }},0.1)
+        .to('.loader',{yPercent:-100,duration:.8,ease:'power4.inOut'},'+=0.15')
         .add(revealHero,'-=0.4')
         .set('.loader',{display:'none'});
     }
