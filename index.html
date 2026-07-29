@@ -14,7 +14,7 @@
   <meta property="og:locale" content="tr_TR">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -114,11 +114,10 @@
     /* Live status bar */
     .live{ position:sticky; top:0; z-index:70; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px var(--pad); background:var(--card); border-bottom:1px solid var(--line); font-family:'Space Mono'; font-size:12px; letter-spacing:.06em; }
     .live .l-left{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.1em; }
-    .live .l-left img{ width:20px; height:20px; object-fit:contain; }
+    .live .l-left img{ height:24px; width:auto; object-fit:contain; }
     .live .l-right{ display:flex; align-items:center; gap:8px; color:var(--fg-dim); }
     .live .rec{ width:8px; height:8px; border-radius:50%; background:var(--accent); animation:blink 1.4s infinite; }
     @keyframes blink{ 50%{ opacity:.25; } }
-    @media(max-width:560px){ .live .avail{ display:none; } }
 
     /* Nav (floating pill) */
     .nav{ position:fixed; top:52px; left:50%; transform:translateX(-50%); z-index:65; display:flex; gap:6px; padding:6px; background:var(--card); border:1px solid var(--line); border-radius:999px; box-shadow:var(--shadow); }
@@ -239,7 +238,7 @@
     .contact-card{ max-width:560px; margin:0 auto; overflow:hidden; }
     .cc-head{ display:flex; align-items:center; gap:12px; padding:20px 24px; border-bottom:1px solid var(--line); }
     .cc-head .av{ width:44px; height:44px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; overflow:hidden; }
-    .cc-head .av img{ width:100%; height:100%; object-fit:cover; }
+    .cc-head .av img{ width:58%; height:auto; object-fit:contain; }
     .cc-head .who{ font-family:'Space Grotesk'; font-weight:700; }
     .cc-head .on{ font-family:'Space Mono'; font-size:11px; color:var(--green); display:flex; align-items:center; gap:6px; margin-top:2px; }
     .cc-head .on::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--green); }
@@ -342,8 +341,8 @@
 
   <!-- Live status bar -->
   <div class="live" id="top">
-    <div class="l-left"><img src="assets/logo.png" alt=""> RISI CREATIVE</div>
-    <div class="l-right"><span class="rec"></span> <span>CANLI · <b id="clock">--:--:--</b></span> <span class="avail">· MÜSAİT</span></div>
+    <div class="l-left"><img src="assets/logo-mark.png" alt=""> RISI CREATIVE</div>
+    <div class="l-right"><span class="rec"></span> <span>CANLI · <b id="clock">--:--:--</b></span></div>
   </div>
 
   <!-- Floating nav -->
@@ -414,27 +413,27 @@
         <p class="fade">Strateji, yaratıcı fikir ve yapay zekânın buluştuğu projeler. Kaydırın ya da sürükleyin.</p>
       </div>
       <div class="work-scroll" id="workScroll">
-        <article class="wcard card" data-cursor>
+        <article class="wcard card">
           <div class="whead"><span class="n mono">01 · Özel Yazılım · Hukuk</span></div>
           <h3>Tahsilat<em>çı</em></h3>
-          <p>Bir hukuk bürosu için sıfırdan geliştirdiğimiz akıllı tahsilat & icra takip sistemi. İki banka portföyü tek panelde, 7/24 otomatik yedekle.</p>
+          <p>Bir hukuk bürosu için sıfırdan geliştirdiğimiz akıllı tahsilat & icra takip sistemi. Dava takip ve muhasebe gibi modülleri talebe göre tek kurulumda birleştiriyoruz — masaüstü ve mobilde aynı akıcılıkta.</p>
           <div class="browser"><div class="bar"><i></i><i></i><i></i></div>
             <img src="assets/tahsilatci/panel.jpg" alt="Tahsilatçı ana panel" loading="lazy" width="1440" height="900">
           </div>
         </article>
-        <article class="wcard card" data-cursor>
+        <article class="wcard card">
           <div class="whead"><span class="n mono">02 · AI Kampanya</span></div>
           <h3>Nova <em>Labs</em></h3>
           <p>Yapay zekâ ile yüzlerce reklam varyasyonu, otomatik test ve optimizasyon.</p>
           <div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="shot g2"></div></div>
         </article>
-        <article class="wcard card" data-cursor>
+        <article class="wcard card">
           <div class="whead"><span class="n mono">03 · Sosyal Medya</span></div>
           <h3>Marea</h3>
           <p>İçerik üretimi ve büyüme stratejisiyle 6 ayda güçlü bir topluluk.</p>
           <div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="shot g3"></div></div>
         </article>
-        <article class="wcard card" data-cursor>
+        <article class="wcard card">
           <div class="whead"><span class="n mono">04 · Web Deneyimi</span></div>
           <h3>Helios</h3>
           <p>Sinematik, etkileşimli bir web deneyimi. Tasarımdan koda uçtan uca.</p>
@@ -453,7 +452,8 @@
         <div class="fs-copy card fade">
           <div class="lead">Ekibiniz yazılımı öğrenmez;<br><em>yazılım</em> ekibinizi öğrenir.</div>
           <p class="body">Hazır programlar herkesi aynı kalıba sokar — personel aylarca menülere alışmaya çalışır. Biz tersini yapıyoruz: işinizi izler, akışınızı çıkarır ve <b>tam sizin çalışma biçiminize göre</b> bir sistem kurarız.</p>
-          <p class="body"><b>Tahsilatçı</b>, bir hukuk bürosu için sıfırdan geliştirdiğimiz akıllı tahsilat ve icra takip sistemidir: iki ayrı banka portföyü tek panelde, borçlu föy kartı ve zaman çizelgesi, ödeme sözü → haciz akışı, rol bazlı yetki, yapay zekâ destekli raporlama ve <b>7/24 otomatik yedekleme</b>.</p>
+          <p class="body"><b>Tahsilatçı</b>, bir hukuk bürosu için sıfırdan geliştirdiğimiz akıllı tahsilat ve icra takip sistemidir. Dava takip, muhasebe ve raporlama gibi modülleri talebinize göre <b>tek kurulumda</b> bir araya getiriyoruz; mevcut verileriniz iş akışınızı bölmeden sisteme aktarılır.</p>
+          <p class="body">İki banka portföyü tek panelde, borçlu föy kartı ve zaman çizelgesi, ödeme sözü → haciz akışı, rol bazlı yetki, yapay zekâ destekli raporlama, masaüstü kadar akıcı <b>mobil erişim</b> ve <b>7/24 otomatik yedekleme</b>.</p>
           <div class="fs-feats">
             <span class="chip">İki banka · tek panel</span>
             <span class="chip">Föy kartı & zaman çizelgesi</span>
@@ -462,6 +462,8 @@
             <span class="chip">Yapay zekâ analiz</span>
             <span class="chip">Otomatik yedek & geri alma</span>
             <span class="chip">Excel içe/dışa aktarım</span>
+            <span class="chip">Modüler kurulum</span>
+            <span class="chip">Mobil uyumlu</span>
           </div>
           <div class="fs-white">
             <span class="ico">🎨</span>
@@ -566,7 +568,7 @@
       <div class="sec-head" style="justify-content:center;text-align:center"><div><span class="script fade" style="font-size:clamp(30px,5vw,48px);display:inline-block;transform:rotate(-4deg)">hadi tanışalım</span><h2 class="fade" style="margin-top:4px">Bir <em>fikriniz</em> mi var?</h2></div></div>
       <div class="contact-card card fade">
         <div class="cc-head">
-          <div class="av"><img src="assets/logo.png" alt=""></div>
+          <div class="av"><img src="assets/logo-mark.png" alt=""></div>
           <div><div class="who">Risi Creative</div><div class="on">Çevrimiçi · genelde 1 saatte yanıt</div></div>
         </div>
         <div class="cc-body">
