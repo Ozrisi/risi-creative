@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Risi Creative — Yaratıcı Reklam & Yapay Zekâ Otomasyon Ajansı</title>
-  <meta name="description" content="Risi Creative — Reklam, tasarım ve yapay zekâ otomasyonunu birleştiren yaratıcı ajans. Cesur fikirler, akılda kalan markalar, 7/24 çalışan otomasyonlar.">
+  <meta name="description" content="Risi Creative — Reklam, tasarım, yapay zekâ otomasyonu ve size özel yazılım geliştiren yaratıcı ajans. Hukuk büroları için akıllı tahsilat sistemi (Tahsilatçı) ve her işe özel çözümler.">
   <meta name="theme-color" content="#a9cef1">
 
   <meta property="og:title" content="Risi Creative — Yaratıcı Reklam & Yapay Zekâ Ajansı">
@@ -268,6 +268,61 @@
     .foot-bottom{ margin-top:32px; padding-top:20px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:'Space Mono'; font-size:12px; color:var(--muted); }
     .to-top{ cursor:pointer; }
 
+    /* Flagship — size özel sistem */
+    .fs-grid{ display:grid; gap:18px; }
+    @media(min-width:960px){ .fs-grid{ grid-template-columns:1fr 1.05fr; align-items:stretch; } }
+    .fs-copy{ padding:clamp(26px,3.2vw,44px); display:flex; flex-direction:column; gap:18px; }
+    .fs-copy .lead{ font-family:'Space Grotesk'; font-weight:700; font-size:clamp(22px,2.7vw,34px); letter-spacing:-.025em; line-height:1.08; }
+    .fs-copy .lead em{ color:var(--accent); font-style:normal; }
+    .fs-copy .body{ color:var(--fg-dim); font-size:15.5px; line-height:1.72; }
+    .fs-copy .body b{ color:var(--fg); font-weight:600; }
+    .fs-feats{ display:flex; flex-wrap:wrap; gap:8px; }
+    .fs-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:4px; }
+    .fs-visual{ padding:clamp(18px,2.4vw,32px); display:flex; align-items:center; justify-content:center; overflow:hidden; background:linear-gradient(160deg,var(--card-2),var(--card)); }
+
+    /* Privacy-first UI mock (temsilî, maskeli) */
+    .mock{ width:100%; border-radius:14px; overflow:hidden; border:1px solid rgba(238,243,250,0.10);
+      background:linear-gradient(165deg,#0f1930,#0a1120); color:#e8eefb; font-family:'Inter',sans-serif;
+      display:flex; flex-direction:column; min-height:clamp(230px,30vw,340px); box-shadow:0 20px 40px rgba(0,0,0,.35); }
+    .mock .mtop{ display:flex; align-items:center; gap:8px; padding:11px 14px; border-bottom:1px solid rgba(238,243,250,0.08); }
+    .mock .mdot{ width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px var(--accent); }
+    .mock .mname{ font-family:'Space Grotesk'; font-weight:700; font-size:13px; letter-spacing:-.01em; }
+    .mock .mlive{ margin-left:auto; font-family:'Space Mono'; font-size:10px; letter-spacing:.08em; color:#7fe0a5; display:flex; align-items:center; gap:5px; }
+    .mock .mlive::before{ content:""; width:6px; height:6px; border-radius:50%; background:#34d16a; }
+    .mock .mbody{ padding:13px; display:flex; flex-direction:column; gap:11px; flex:1; }
+    .mock .mtiles{ display:grid; grid-template-columns:repeat(3,1fr); gap:9px; }
+    .mock .mtile{ background:rgba(255,255,255,0.045); border:1px solid rgba(238,243,250,0.07); border-radius:11px; padding:10px 11px; }
+    .mock .mtile .k{ font-size:9.5px; letter-spacing:.03em; color:#8ea0bd; text-transform:uppercase; }
+    .mock .mtile .v{ font-family:'Space Grotesk'; font-weight:700; font-size:19px; margin-top:3px; letter-spacing:-.02em; }
+    .mock .mtile .v.acc{ color:var(--accent); }
+    .mock .mtile .v.mask{ color:#cdd8ec; letter-spacing:.06em; }
+    .mock .mchart{ display:flex; align-items:flex-end; gap:5px; height:52px; padding:8px 11px; background:rgba(255,255,255,0.03); border-radius:11px; border:1px solid rgba(238,243,250,0.06); }
+    .mock .mchart i{ flex:1; border-radius:3px 3px 0 0; background:linear-gradient(180deg,var(--accent),rgba(255,90,42,.35)); opacity:.9; }
+    .mock .mrows{ display:flex; flex-direction:column; gap:6px; }
+    .mock .mrow{ display:flex; align-items:center; gap:9px; font-size:11.5px; }
+    .mock .mav{ width:22px; height:22px; border-radius:50%; background:linear-gradient(135deg,#2b6bff,#7c4dff); flex-shrink:0; }
+    .mock .mrow .mn{ color:#c7d3e8; letter-spacing:.04em; }
+    .mock .mrow .mb{ margin-left:auto; font-family:'Space Mono'; font-size:9.5px; padding:2px 8px; border-radius:999px; }
+    .mock .mb.ok{ background:rgba(52,209,106,.16); color:#7fe0a5; }
+    .mock .mb.wait{ background:rgba(254,188,46,.16); color:#f6cf6b; }
+    /* compact mock inside a work-card browser shot */
+    .browser .shot.mockwrap{ height:clamp(180px,26vw,260px); padding:0; }
+    .browser .shot.mockwrap .mock{ min-height:0; height:100%; border:0; border-radius:0; box-shadow:none; }
+    /* gerçek ekran görüntüleri */
+    .browser img{ display:block; width:100%; height:auto; }
+    .fs-visual .browser{ width:100%; box-shadow:0 20px 44px rgba(0,0,0,.28); }
+    .fs-white{ display:flex; gap:11px; align-items:flex-start; padding:14px 16px; border-radius:14px;
+      background:rgba(255,90,42,0.09); border:1px solid rgba(255,90,42,0.30); font-size:13.5px; line-height:1.58; color:var(--fg); }
+    .fs-white .ico{ font-size:18px; line-height:1.2; flex-shrink:0; }
+    .fs-white b{ color:var(--accent); }
+    .shot-gallery{ display:grid; gap:16px; margin-top:20px; }
+    @media(min-width:760px){ .shot-gallery{ grid-template-columns:repeat(3,1fr); } }
+    .shot-item{ overflow:hidden; }
+    .shot-item .browser{ border-left:none; border-right:none; border-top:none; border-radius:0; }
+    .shot-cap{ padding:13px 17px 16px; }
+    .shot-cap .t{ font-family:'Space Grotesk'; font-weight:700; font-size:15px; letter-spacing:-.01em; }
+    .shot-cap .d{ color:var(--fg-dim); font-size:13px; margin-top:3px; line-height:1.5; }
+
     @media (prefers-reduced-motion:reduce){
       *{ animation:none !important; transition:none !important; }
       .line-mask > *, .loader .l-name span{ transform:none !important; }
@@ -295,6 +350,7 @@
   <nav class="nav">
     <a href="#top" class="hideable" data-cursor>Ana Sayfa</a>
     <a href="#work" class="hideable" data-cursor>Çalışmalar</a>
+    <a href="#sistem" class="hideable" data-cursor>Sistem</a>
     <a href="#services" class="hideable" data-cursor>Hizmetler</a>
     <button class="theme-btn" id="themeBtn" data-cursor aria-label="Tema">
       <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
@@ -359,10 +415,12 @@
       </div>
       <div class="work-scroll" id="workScroll">
         <article class="wcard card" data-cursor>
-          <div class="whead"><span class="n mono">01 · Marka Kimliği</span></div>
-          <h3>Aurora <em>Studio</em></h3>
-          <p>Sıfırdan marka kimliği ve web deneyimi — cesur tipografi, sıcak palet.</p>
-          <div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="shot g1"></div></div>
+          <div class="whead"><span class="n mono">01 · Özel Yazılım · Hukuk</span></div>
+          <h3>Tahsilat<em>çı</em></h3>
+          <p>Bir hukuk bürosu için sıfırdan geliştirdiğimiz akıllı tahsilat & icra takip sistemi. İki banka portföyü tek panelde, 7/24 otomatik yedekle.</p>
+          <div class="browser"><div class="bar"><i></i><i></i><i></i></div>
+            <img src="assets/tahsilatci/panel.jpg" alt="Tahsilatçı ana panel" loading="lazy" width="1440" height="900">
+          </div>
         </article>
         <article class="wcard card" data-cursor>
           <div class="whead"><span class="n mono">02 · AI Kampanya</span></div>
@@ -383,6 +441,60 @@
           <div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="shot g4"></div></div>
         </article>
       </div>
+    </section>
+
+    <!-- FLAGSHIP — SIZE ÖZEL SISTEM -->
+    <section class="sec wrap" id="sistem">
+      <div class="sec-head">
+        <div><span class="tag">— Öne Çıkan Sistem</span><h2 class="fade" style="margin-top:8px">Size <em>özel</em> yazılım.</h2></div>
+        <p class="fade">Hazır programa siz uyum sağlamazsınız; program sizin işinize uyar.</p>
+      </div>
+      <div class="fs-grid">
+        <div class="fs-copy card fade">
+          <div class="lead">Ekibiniz yazılımı öğrenmez;<br><em>yazılım</em> ekibinizi öğrenir.</div>
+          <p class="body">Hazır programlar herkesi aynı kalıba sokar — personel aylarca menülere alışmaya çalışır. Biz tersini yapıyoruz: işinizi izler, akışınızı çıkarır ve <b>tam sizin çalışma biçiminize göre</b> bir sistem kurarız.</p>
+          <p class="body"><b>Tahsilatçı</b>, bir hukuk bürosu için sıfırdan geliştirdiğimiz akıllı tahsilat ve icra takip sistemidir: iki ayrı banka portföyü tek panelde, borçlu föy kartı ve zaman çizelgesi, ödeme sözü → haciz akışı, rol bazlı yetki, yapay zekâ destekli raporlama ve <b>7/24 otomatik yedekleme</b>.</p>
+          <div class="fs-feats">
+            <span class="chip">İki banka · tek panel</span>
+            <span class="chip">Föy kartı & zaman çizelgesi</span>
+            <span class="chip">Söz → Haciz akışı</span>
+            <span class="chip">Rol bazlı yetki</span>
+            <span class="chip">Yapay zekâ analiz</span>
+            <span class="chip">Otomatik yedek & geri alma</span>
+            <span class="chip">Excel içe/dışa aktarım</span>
+          </div>
+          <div class="fs-white">
+            <span class="ico">🎨</span>
+            <div><b>Markanıza özel.</b> Sistemi kurumsal renginiz ve logonuzla kişiselleştiriyoruz — her ekran sizin markanızla görünür. <b>Logonuz yoksa ücretsiz tasarlıyoruz.</b></div>
+          </div>
+          <div class="fs-actions">
+            <a href="#contact" class="btn btn-accent" data-cursor><span>Size özel sistem kuralım →</span></a>
+          </div>
+        </div>
+        <div class="fs-visual card fade" data-tilt>
+          <div class="browser">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <img src="assets/tahsilatci/panel.jpg" alt="Tahsilatçı ana panel — aylık hedef gerçekleştirme, net oran, beklenti ve ilerleme eğrisi" loading="lazy" width="1440" height="900">
+          </div>
+        </div>
+      </div>
+
+      <!-- Ekran görüntüsü galerisi -->
+      <div class="shot-gallery fade">
+        <figure class="shot-item card">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="assets/tahsilatci/beklentiler.jpg" alt="Tahsilatçı beklenti takibi — ödeme sözleri ve takvim" loading="lazy" width="1440" height="900"></div>
+          <figcaption class="shot-cap"><div class="t">Hedef & beklenti takibi</div><div class="d">Ödeme sözleri, geciken/kısmi durumlar, aylık beklenti takvimi.</div></figcaption>
+        </figure>
+        <figure class="shot-item card">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="assets/tahsilatci/borclular.jpg" alt="Tahsilatçı borçlu takip listesi" loading="lazy" width="1440" height="900"></div>
+          <figcaption class="shot-cap"><div class="t">Borçlu yönetimi</div><div class="d">Filtrelenebilir liste, sorumlu ataması, dosya durumu ve notlar.</div></figcaption>
+        </figure>
+        <figure class="shot-item card">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="assets/tahsilatci/login.jpg" alt="Tahsilatçı güvenli giriş ekranı" loading="lazy" width="1440" height="900"></div>
+          <figcaption class="shot-cap"><div class="t">Markanıza özel giriş</div><div class="d">Kurumsal renk ve logonuzla kişiselleştirilen güvenli giriş.</div></figcaption>
+        </figure>
+      </div>
+      <p class="stack-note" style="text-align:center;margin-top:14px">Ekran görüntüleri gerçek arayüzden alınmıştır; tüm veriler <b>temsilî demo verileridir</b>, gerçek müşteri bilgisi içermez.</p>
     </section>
 
     <!-- SERVICES -->
@@ -434,6 +546,8 @@
       <div class="faq fade">
         <div class="faq-item card"><button class="faq-q" data-cursor>Hangi hizmetleri sunuyorsunuz? <span class="pl">+</span></button><div class="faq-a"><p>Marka kimliği, yapay zekâ destekli reklam, otomasyon & CRM, sosyal medya, web & deneyim tasarımı ve performans pazarlama.</p></div></div>
         <div class="faq-item card"><button class="faq-q" data-cursor>Yapay zekâ otomasyonu ne işime yarar? <span class="pl">+</span></button><div class="faq-a"><p>Tekrarlayan işleri — içerik, yayın, raporlama, müşteri iletişimi — otomatikleştirir. Ekibiniz stratejiye odaklanır; süreç 7/24 çalışır.</p></div></div>
+        <div class="faq-item card"><button class="faq-q" data-cursor>Bize özel bir program/yazılım yaptırabilir miyiz? <span class="pl">+</span></button><div class="faq-a"><p>Evet — asıl işimiz bu. Hazır bir programa uyum sağlamak yerine, işinizi ve ekibinizin çalışma biçimini çıkarıp tam size özel bir sistem kuruyoruz. Hukuk büroları için önceliğimiz var (bkz. Tahsilatçı), ama her sektöre özel yazılım ve otomasyon geliştiriyoruz.</p></div></div>
+        <div class="faq-item card"><button class="faq-q" data-cursor>Verilerimiz güvende mi? <span class="pl">+</span></button><div class="faq-a"><p>Sistemleriniz kendi kontrolünüzdeki ortamda çalışır; otomatik yedekleme ve rol bazlı yetkilendirme standarttır. Tanıtımlarımızda müşteri verileri asla paylaşılmaz — örnek görseller temsilî ve maskelidir.</p></div></div>
         <div class="faq-item card"><button class="faq-q" data-cursor>Küçük bir işletme için uygun mu? <span class="pl">+</span></button><div class="faq-a"><p>Kesinlikle. Çözümleri ölçeğinize ve bütçenize göre kuruyoruz.</p></div></div>
         <div class="faq-item card"><button class="faq-q" data-cursor>Nasıl başlıyoruz? <span class="pl">+</span></button><div class="faq-a"><p>Aşağıdan bize yazın; kısa bir tanışmayla ihtiyaçlarınızı dinliyoruz.</p></div></div>
       </div>
@@ -476,7 +590,7 @@
       <div class="foot-top">
         <div class="foot-lead">Markanızı <em>geleceğe</em> taşıyalım.</div>
         <div class="foot-cols">
-          <div class="foot-col"><h5>Menü</h5><a href="#work">Çalışmalar</a><a href="#services">Hizmetler</a><a href="#automation">Otomasyon</a><a href="#about">Ajans</a></div>
+          <div class="foot-col"><h5>Menü</h5><a href="#work">Çalışmalar</a><a href="#sistem">Sistem</a><a href="#services">Hizmetler</a><a href="#automation">Otomasyon</a><a href="#about">Ajans</a></div>
           <div class="foot-col"><h5>Bağlan</h5><a href="https://instagram.com/risicreative" target="_blank" rel="noopener">Instagram ↗</a><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="mailto:info@risicreative.com">E-posta ↗</a><p>Bitez, Bodrum / Muğla</p></div>
         </div>
       </div>
